@@ -1,0 +1,162 @@
+\subsection{b} 
+\label{section_1_b}
+Compute $\Gamma_0 = Cov[\mathbi{X}_t]$.
+
+\begin{solution}
+
+\begin{equation}
+\begin{aligned}
+Cov(\mathbi{X}_t) & = E\left\{[\mathbi{X}_t-E(\mathbi{X}_t)][\mathbi{X}_t-E(\mathbi{X}_t)]^T\right\} \\
+									& =\left[\begin{array}{cc} Var(X_{1,t}) & Cov(X_{1,t},X_{2,t}) \\ Cov(X_{2,t},X_{1,t}) & Var(X_{2,t}) \end{array}\right] \\
+									& =\left[\begin{array}{cc} Var(X_{1,t}) & Cov(X_{1,t},X_{2,t}) \\ Cov(X_{1,t},X_{2,t}) & Var(X_{2,t}) \end{array}\right] 
+\end{aligned}
+\end{equation}
+
+\begin{equation}
+\begin{aligned}
+Var(X_{1,t}) 	& = E\left\{[X_{1,t} - E(X_{1,t})][X_{1,t} - E(X_{1,t})]\right\} \\
+							& = E(X_{1,t}^2) - [E(X_{1,t})]^2 \\
+							& = E\left(0.09 + 0.48 \cdot X_{1,t-1} + 0.6 \cdot \epsilon_{1,t} 
+														  + 0.64 \cdot X_{1,t-1}^2 + 1.6 \cdot X_{1,t-1}\epsilon_{1,t} 
+															+ \epsilon_{1,t}^2 \right) - [E(X_{1,t})]^2 \\
+							& = 0.09 + 0.48 \cdot E(X_{1,t-1}) + 0.6 \cdot E(\epsilon_{1,t}) 
+														  + 0.64 \cdot E(X_{1,t-1}^2) \\
+							& \qquad				+ 1.6 \cdot E(X_{1,t-1}) \cdot E(\epsilon_{1,t}) 
+									  	        + E(\epsilon_{1,t}^2) - [E(X_{1,t})]^2  \\
+							& = 0.09 + 0.48 \cdot E(X_{1,t}) + 0.6 \cdot 0 
+														  + 0.64 \cdot \left\{ Var(X_{1,t-1}) + \left[ E(X_{1,t-1})\right]^2 \right\} \\
+							& \qquad				+ 1.6 \cdot E(X_{1,t-1}) \cdot 0 
+															+ E(\epsilon_{1,t}^2) - [E(X_{1,t})]^2 \\
+							& = 0.09 + 0.48 \cdot E(X_{1,t}) 
+														  + 0.64 \cdot Var(X_{1,t}) + 0.64 \cdot \left[ E(X_{1,t-1})\right]^2 \\
+							& \qquad				+ E(\epsilon_{1,t}^2) - [E(X_{1,t})]^2 \\
+							& = 0.09 + 0.48 \cdot E(X_{1,t}) 
+														  + 0.64 \cdot Var(X_{1,t}) \\
+							& \qquad				+ E(\epsilon_{1,t}^2) - 0.36 \cdot [E(X_{1,t})]^2	\\
+							& = \frac{1}{0.36}\left\{0.09 + 0.48 \cdot E(X_{1,t}) 
+														  + E(\epsilon_{1,t}^2) - 0.36 \cdot [E(X_{1,t})]^2	\right\} \\
+							& = \frac{1}{0.36}\left[0.09 + 0.48 \cdot \frac{3}{2}
+														  + 3 - 0.36 \cdot \left(\frac{3}{2}\right)^2	\right] \\
+							& = \frac{100}{12}								
+\end{aligned}
+\end{equation}
+
+\begin{equation}
+\begin{aligned}
+Var(X'_{1,t}) & = E\left\{[X'_{1,t}][X'_{1,t}]\right\} \\
+							& = E({X'}_{1,t}^2) \\
+							& = E\left(0.64 \cdot {X'}_{1,t-1}^2 + 1.6 \cdot X'_{1,t-1}\epsilon_{1,t} 
+															+ \epsilon_{1,t}^2 \right) \\
+							& = \frac{1}{0.36}E(\epsilon_{1,t}^2) \\
+							& = \frac{1}{0.36} \cdot 3 \\
+							& = \frac{100}{12}								
+\end{aligned}
+\end{equation}
+
+\begin{equation}
+\begin{aligned}
+Cov(X_{1,t},X_{2,t}) 	& = E\left\{[X_{1,t} - E(X_{1,t})][X_{2,t} - E(X_{2,t})]\right\} \\
+											& = E(X_{1,t}X_{2,t}) - E(X_{1,t}) E(X_{2,t}) \\
+											& = E(0.06 + 0.18 \cdot X_{1,t-1} + 0.12 \cdot X_{2,t-1} + 0.3 \cdot \epsilon_{2,t} \\
+											& \qquad	 + 0.16 \cdot X_{1,t-1} + 0.48 \cdot X_{1,t-1}^2 + 0.32 \cdot X_{1,t-1} X_{2,t-1} + 0.8 \cdot X_{1,t-1} \epsilon_{1,t} \\
+											& \qquad	 + 0.2 \cdot \epsilon_{1,t} + 0.6 \cdot X_{1,t-1} \cdot \epsilon_{1,t} + 0.4 \cdot X_{2,t-1} \epsilon_{1,t}
+															+ \epsilon_{1,t} \epsilon_{2,t} ) - E(X_{1,t}) E(X_{2,t})	\\
+											& = 0.06 + 0.34 \cdot E(X_{1,t-1}) + 0.12 \cdot E(X_{2,t-1}) \\
+											& \qquad + 0.48 \cdot E(X_{1,t-1}^2) + 0.32 \cdot E(X_{1,t-1} X_{2,t-1}) \\
+											& \qquad + E(\epsilon_{1,t} \epsilon_{2,t}) - E(X_{1,t}) E(X_{2,t}) \\
+											& = 0.06 + 0.34 \cdot E(X_{1,t-1}) + 0.12 \cdot E(X_{2,t-1}) \\
+											& \qquad + 0.48 \cdot Var(X_{1,t-1}) + 0.48 \cdot [E(X_{1,t-1})]^2 \\
+											& \qquad + 0.32 \cdot Cov(X_{1,t-1}, X_{2,t-1}) + 0.32 \cdot E(X_{1,t}) E(X_{2,t}) \\
+											& \qquad + E(\epsilon_{1,t} \epsilon_{2,t}) - E(X_{1,t}) E(X_{2,t})	\\
+											& = \frac{1}{0.68} \{0.06 + 0.34 \cdot E(X_{1,t-1}) + 0.12 \cdot E(X_{2,t-1}) \\
+											& \qquad \qquad + 0.48 \cdot Var(X_{1,t-1}) + 0.48 \cdot [E(X_{1,t-1})]^2 \\
+											& \qquad \qquad + E(\epsilon_{1,t} \epsilon_{2,t}) -0.68 \cdot E(X_{1,t}) E(X_{2,t}) \} \\
+											& = \frac{1}{0.68} \left \{ 0.06 + 0.34 \cdot \frac{3}{2} + 0.12 \cdot \frac{11}{6} 
+											                     + 0.48 \cdot \frac{100}{12} + 0.48 \cdot \left(\frac{3}{2}\right)^2 
+											                     - 1 -0.68 \cdot \frac{3}{2} \frac{11}{6} \right\}	\\
+											& = \frac{75}{17}
+\end{aligned}
+\end{equation}
+
+\begin{equation}
+\begin{aligned}
+Cov(X'_{1,t},X'_{2,t}) 	& = E\left\{[X_{1,t}][X_{2,t} - E(X_{2,t})]\right\} \\
+											& = E(X'_{1,t}X'_{2,t}) \\
+											& = E(0.48 \cdot {X'}_{1,t-1}^2 + 0.32 \cdot X'_{1,t-1} X'_{2,t-1} + 0.8 \cdot X'_{1,t-1} \epsilon_{1,t} \\
+											& \qquad	 + 0.6 \cdot X'_{1,t-1} \cdot \epsilon_{1,t} + 0.4 \cdot X'_{2,t-1} \epsilon_{1,t}
+															+ \epsilon_{1,t} \epsilon_{2,t} )\\
+											& = 0.48 \cdot E({X'}_{1,t-1}^2) + 0.32 \cdot E(X'_{1,t-1} X'_{2,t-1}) \\
+											& \qquad + E(\epsilon_{1,t} \epsilon_{2,t}) \\
+											& = 0.48 \cdot Var(X'_{1,t-1}) + 0.32 \cdot Cov(X'_{1,t-1}, X'_{2,t-1}) \\
+											& \qquad + E(\epsilon_{1,t} \epsilon_{2,t}) \\
+											& = \frac{1}{0.68} \{0.48 \cdot Var(X'_{1,t-1}) \\
+											& \qquad + E(\epsilon_{1,t} \epsilon_{2,t})\} \\
+											& = \frac{1}{0.68} \left( 0.48 \cdot \frac{100}{12} - 1 \right) \\
+											& = \frac{75}{17}
+\end{aligned}
+\end{equation}
+
+\begin{equation}
+\begin{aligned}
+Var(X_{2,t}) 	& = E\left\{[X_{2,t} - E(X_{2,t})][X_{2,t} - E(X_{2,t})]\right\} \\
+							& = E(X_{2,t}^2) - [E(X_{2,t})]^2 \\
+							& = E(0.04 + 0.24 \cdot X_{1,t-1} + 0.16 \cdot X_{2,t-1} + 0.4 \cdot \epsilon_{2,t} \\
+							& \qquad			  + 0.36 \cdot X_{1,t-1}^2 + 0.48 \cdot X_{1,t-1}X_{2,t-1} + 1.2 \cdot X_{1,t-1}\epsilon_{2,t} \\ 
+							& \qquad				+ 0.16 \cdot X_{2,t-1}^2 + 0.8 \cdot X_{2,t-1}\epsilon_{2,t} 
+							        				+ \epsilon_{2,t}^2 ) - [E(X_{2,t})]^2 \\
+							& = 0.04 + 0.24 \cdot E(X_{1,t-1}) + 0.16 \cdot E(X_{2,t-1}) +0.4 \cdot E(\epsilon_{2,t}) \\
+							& \qquad			  + 0.36 \cdot E(X_{1,t-1}^2) + 0.48 \cdot E(X_{1,t-1}X_{2,t-1}) + 1.2 \cdot E(X_{1,t-1}\epsilon_{2,t}) \\ 
+							& \qquad				+ 0.16 \cdot E(X_{2,t-1}^2) + 0.8 \cdot E(X_{2,t-1} \cdot \epsilon_{2,t}) 
+							        				+ E(\epsilon_{2,t}^2) - [E(X_{2,t})]^2 \\		
+							& = 0.04 + 0.24 \cdot E(X_{1,t-1}) + 0.16 \cdot E(X_{2,t-1}) +0.4 \cdot 0 \\
+							& \qquad			  + 0.36 \cdot E(X_{1,t-1}^2) + 0.48 \cdot \left[ Cov(X_{1,t-1},X_{2,t-1}) + E(X_{1,t-1}) \cdot E(X_{2,t-1}) \right] \\
+							& \qquad \qquad + 1.2 \cdot E(X_{1,t-1}) \cdot E(\epsilon_{2,t}) \\ 
+							& \qquad				+ 0.16 \cdot E(X_{2,t-1}^2) + 0.8 \cdot E(X_{2,t-1}) \cdot E(\epsilon_{2,t}) 
+							            		+ E(\epsilon_{2,t}^2) - [E(X_{2,t})]^2 \\	
+							& = 0.04 + 0.24 \cdot E(X_{1,t-1}) + 0.16 \cdot E(X_{2,t-1}) \\
+							& \qquad			  + 0.36 \cdot E(X_{1,t-1}^2) + 0.48 \cdot Cov(X_{1,t-1},X_{2,t-1}) + 0.48 \cdot E(X_{1,t-1}) \cdot E(X_{2,t-1}) \\
+							& \qquad \qquad + 1.2 \cdot E(X_{1,t-1}) \cdot 0 \\ 
+							& \qquad				+ 0.16 \cdot E(X_{2,t-1}^2) + 0.8 \cdot E(X_{2,t-1}) \cdot 0 
+							        				+ E(\epsilon_{2,t}^2) - [E(X_{2,t})]^2 \\
+							& = 0.04 + 0.24 \cdot E(X_{1,t-1}) + 0.16 \cdot E(X_{2,t-1}) \\
+							& \qquad			  + 0.36 \cdot \left\{ Var(X_{1,t-1}) + [E(X_{1,t})]^2 \right\}+ 0.48 \cdot Cov(X_{1,t-1},X_{2,t-1})  \\
+							& \qquad \qquad + 0.48 \cdot E(X_{1,t-1}) \cdot E(X_{2,t-1}) \\ 
+							& \qquad				+ 0.16 \cdot \left\{ Var(X_{2,t-1}) + [E(X_{2,t})]^2 \right\}  
+							        				+ E(\epsilon_{2,t}^2) - [E(X_{2,t})]^2 \\	
+							& = 0.04 + 0.24 \cdot E(X_{1,t-1}) + 0.16 \cdot E(X_{2,t-1}) \\
+							& \qquad			  + 0.36 \cdot Var(X_{1,t-1}) + 0.36 \cdot [E(X_{1,t})]^2 + 0.48 \cdot Cov(X_{1,t-1},X_{2,t-1})  \\
+							& \qquad \qquad + 0.48 \cdot E(X_{1,t-1}) \cdot E(X_{2,t-1}) \\ 
+							& \qquad				+ 0.16 \cdot Var(X_{2,t-1})  
+							        				+ E(\epsilon_{2,t}^2) - 0.84 \cdot [E(X_{2,t})]^2 \\
+							& = \frac{1}{0.84} \cdot \{0.04 + 0.24 \cdot E(X_{1,t-1}) + 0.16 \cdot E(X_{2,t-1}) \\
+							& \qquad \qquad + 0.36 \cdot Var(X_{1,t-1}) + 0.36 \cdot [E(X_{1,t})]^2 + 0.48 \cdot Cov(X_{1,t-1},X_{2,t-1})  \\
+							& \qquad \qquad + 0.48 \cdot E(X_{1,t-1}) \cdot E(X_{2,t-1}) \\ 
+							& \qquad \qquad + E(\epsilon_{2,t}^2) - 0.84 \cdot [E(X_{2,t})]^2 \} \\
+							& = \frac{1}{0.84} \cdot \left\{0.04 + 0.24 \cdot \frac{3}{2} + 0.16 \cdot \frac{11}{6}
+							                + 0.36 \cdot \frac{10}{12} + 0.36 \cdot \left(\frac{3}{2}\right)^2 + 0.48 \cdot \frac{75}{17} \right. \\
+							& \qquad \qquad \left. + 0.48 \cdot \frac{3}{2} \cdot \frac{11}{3}  
+							                + 3 - 0.84 \cdot \left(\frac{11}{6}\right)^2 \right\} \\
+							& = \frac{1150}{119}
+\end{aligned}
+\end{equation}
+
+\begin{equation}
+\begin{aligned}
+Var(X'_{2,t}) & = E\left\{[X_{2,t} - E(X_{2,t})][X_{2,t} - E(X_{2,t})]\right\} \\
+							& = E({X'}_{2,t}^2) \\
+							& = E(0.36 \cdot {X'}_{1,t-1}^2 + 0.48 \cdot X'_{1,t-1}X'_{2,t-1} + 1.2 \cdot X'_{1,t-1}\epsilon_{2,t} \\ 
+							& \qquad				+ 0.16 \cdot {X'}_{2,t-1}^2 + 0.8 \cdot X'_{2,t-1}\epsilon_{2,t} 
+							        				+ \epsilon_{2,t}^2 ) \\
+							& = 0.36 \cdot E({X'}_{1,t-1}^2) + 0.48 \cdot Cov(X'_{1,t-1},X'_{2,t-1}) + 1.2 \cdot E(X'_{1,t-1}\epsilon_{2,t}) \\ 
+							& \qquad				+ 0.16 \cdot Var(X'_{2,t-1}) + 0.8 \cdot E(X'_{2,t-1} \cdot \epsilon_{2,t}) 
+							        				+ E(\epsilon_{2,t}^2)\\		
+							& = 0.36 \cdot E({X'}_{1,t-1}^2) + 0.48 \cdot Cov(X'_{1,t},X'_{2,t})\\ 
+							& \qquad				+ 0.16 \cdot Var(X'_{2,t}) 
+							        				+ E(\epsilon_{2,t}^2)\\
+							& = \frac{1}{0.84} \cdot [0.36 \cdot Var(X'_{1,t-1}) + 0.48 \cdot Cov(X'_{1,t-1},X'_{2,t-1}) + E(\epsilon_{2,t}^2)] \\
+							& = \frac{1}{0.84} \cdot \left[0.36 \cdot \frac{100}{12} + 0.48 \cdot \frac{75}{17} + 3 \right] \\
+							& = \frac{1150}{119}
+\end{aligned}
+\end{equation}
+
+\end{solution}

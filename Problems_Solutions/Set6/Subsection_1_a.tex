@@ -1,0 +1,34 @@
+\subsection{a} 
+\label{section_1_a}
+Compute $\mu = E[\mathbi{X}_t]$.
+
+\begin{solution}
+
+\begin{equation}
+\begin{aligned}
+E(\mathbi{X}_t) & =\left[\begin{array}{c} E(X_{1,t}) \\ E(X_{2,t}) \end{array}\right] \\
+								& =\left[\begin{array}{l} E(0.3 + 0.8 \cdot X_{1,t-1} + \epsilon_{1,t}) \\
+																	        E(0.2 + 0.6 \cdot X_{1,t-1} + 0.4 \cdot X_{2,t-1} + \epsilon_{2,t}) 
+											   \end{array}\right] \\
+								& =\left[\begin{array}{llll} 0.3 &+ 0.8 \cdot E(X_{1,t-1}) & &+ E(\epsilon_{1,t}) \\
+																	          0.2 &+ 0.6 \cdot E(X_{1,t-1}) &+ 0.4 \cdot E(X_{2,t-1}) &+ E(\epsilon_{2,t}) 
+											   \end{array}\right] \\
+\left[\begin{array}{c} E(X_{1,t}) \\
+											 E(X_{2,t}) 
+			\end{array}\right]
+								& =\left[\begin{array}{llll} 0.3 &+ 0.8 \cdot E(X_{1,t}) & &+ 0 \\
+																	           0.2 &+ 0.6 \cdot E(X_{1,t}) &+ 0.4 \cdot E(X_{2,t}) &+ 0
+											   \end{array}\right] \\
+								& =\left[\begin{array}{lll} \frac{0.3}{0.2} & &  \\
+																	           0.2 &+ 0.6 \cdot \frac{0.3}{0.2} &+ 0.4 \cdot E(X_{2,t})
+											   \end{array}\right] \\
+								& =\left[\begin{array}{ll} \frac{3}{2} &  \\
+																	           1.1 &+ 0.4 \cdot E(X_{2,t})
+											   \end{array}\right] \\
+								& =\left[\begin{array}{l} ^3/_2  \\
+																	        ^{11}/_6
+											   \end{array}\right] \square
+\end{aligned}
+\end{equation}
+
+\end{solution}

@@ -1,0 +1,19 @@
+\subsection{b} 
+\label{section_2_b}
+Prove that $x_t$ is an $AR(2)$ process.
+
+\begin{solution}
+
+\begin{equation}
+\begin{aligned}
+										x_t & = w_t - v_t = \frac{5}{1 - 0.5L}\epsilon_t - \frac{4}{1 - 0.4L}\epsilon_t \\
+												& = \frac{5(1 - 0.4L) - 4(1 - 0.5L)}{(1 - 0.5L)(1 - 0.4L)}\epsilon_t \\
+												& = \frac{1}{(1 - 0.5L)(1 - 0.4L)} \epsilon_t \\
+(1 - 0.5L)(1 - 0.4L)x_t	& = \epsilon_t \\
+  (1 -0.9L + 0.2L^2)x_t & = \epsilon_t \\
+									  x_t & = 0.9x_{t-1} - 0.2x_{t-2} + \epsilon_t \quad \square.\\
+\end{aligned}
+\end{equation}
+
+\end{solution}
+

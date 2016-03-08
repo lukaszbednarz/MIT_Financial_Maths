@@ -1,0 +1,142 @@
+\subsection{a}
+\label{subsection_3_a}
+Prove that: $\mathbi{E}[\epsilon^2_t] = \alpha_0/(1-\alpha_1)$.
+Where $Z_t$ is i.i.d. and $\mathbi{E}[Z_t] = 0$ and $\mathbi{E}[Z_t^2] = 1$.
+
+\begin{solution}
+
+Using $\mathbi{E}[\epsilon^2_t] = Z_t\sigma_t$ and $\sigma_t^2 = \alpha_0 + \alpha_1 \epsilon_{t-1}^2$:
+
+\begin{equation}
+\begin{aligned}
+\mathbi{E}[\epsilon^2_t] & = \mathbi{E}\left[Z_t^2\sigma_t^2\right] \\
+												 & = \mathbi{E}\left[Z_t^2(\alpha_0 + \alpha_1 \epsilon_{t-1}^2)\right] \\
+												 & = \mathbi{E}\left[Z_t^2\right] \mathbi{E}\left[\alpha_0 + \alpha_1 \epsilon_{t-1}^2\right] \\
+												 & = 1 \cdot \left\{\alpha_0 + \alpha_1\mathbi{E}\left[\alpha_1 \epsilon_{t-1}^2\right] \right\} \\
+												 & = \alpha_0 + \alpha_1\mathbi{E}\left[\epsilon_{t}^2\right] \\
+										     & = \frac{\alpha_0}{1 - \alpha_1} \square
+\end{aligned}
+\end{equation}
+\end{solution}
+
+\subsection{b}
+\label{subsection_3_b}
+Prove that: $\mathbi{E}[\epsilon^3_t] = 0$.
+Suppose that $\mathbi{E}[Z_t^3] = 0$.
+
+\begin{solution}
+
+\begin{equation}
+\begin{aligned}
+\mathbi{E}[\epsilon^3_t] & = \mathbi{E}\left[Z_t^3\sigma_t^3\right] \\
+												 & = \mathbi{E}\left[Z_t^3\right] \mathbi{E}\left[\sigma_t^3\right] \\
+												 & = 0 \cdot \mathbi{E}\left[\sigma_t^3\right] \\
+												 & = 0 \square.
+\end{aligned}
+\end{equation}
+
+because $\mathbi{E}\left[Z_t^3\right]=0$.
+\end{solution}
+
+
+\subsection{c}
+\label{subsection_3_c}
+Prove that: $\mathbi{E}[\epsilon^4_t] = \frac{\kappa\alpha_0^2(1+\alpha_1)}{(1-\alpha_1)(1-\kappa\alpha_1)} $.
+Suppose that $\mathbi{E}[Z_t^4] = \kappa$.
+
+\begin{solution}
+
+\begin{equation}
+\begin{aligned}
+\mathbi{E}[\epsilon^4_t] & = \mathbi{E}\left[Z_t^4\sigma_t^4\right] \\
+												 & = \mathbi{E}\left[Z_t^4(\alpha_0 + \alpha_1 \epsilon_{t-1}^2)^2\right] \\
+												 & = \mathbi{E}\left[Z_t^4\right] \mathbi{E}\left[\left(\alpha_0 + \alpha_1 \epsilon_{t-1}^2)^2\right)\right] \\
+												 & = \kappa \cdot \left\{ \mathbi{E}\left[\left(\alpha_0^2 
+																																	      + 2\alpha_0\alpha_1\epsilon_{t-1}^2 
+																																	      + \alpha_1^2\epsilon_{t-1}^4 \right)\right] \right\} \\
+												 & = \kappa \cdot \left\{ \alpha_0^2 
+																																	      + 2\alpha_0\alpha_1\mathbi{E}\left[\epsilon_{t-1}^2 \right] 
+																																	      + \alpha_1^2\mathbi{E}\left[\epsilon_{t-1}^4 \right] \right\} \\
+										     & = \kappa \cdot \left\{ \alpha_0^2 
+																																	      + 2\alpha_0\alpha_1\frac{\alpha_0}{1 - \alpha_1} 
+																																	      + \alpha_1^2\mathbi{E}\left[\epsilon_{t-1}^4 \right] \right\} \\
+											   & = \kappa \cdot \left\{ \frac{\alpha_0^2(1 - \alpha_1)}{1 - \alpha_1} 
+																																	      + \frac{2\alpha_0^2\alpha_1}{1 - \alpha_1} 
+																																	      + \alpha_1^2\mathbi{E}\left[\epsilon_{t-1}^4 \right] \right\} \\
+												& = \kappa \cdot \left\{ \frac{\alpha_0^2 - \alpha_0^2\alpha_1 + 2\alpha_0^2\alpha_1}{1 - \alpha_1} 
+																																	      + \alpha_1^2\mathbi{E}\left[\epsilon_{t-1}^4 \right] \right\} \\
+												& = \kappa\frac{\alpha_0^2 - \alpha_0^2\alpha_1 + 2\alpha_0^2\alpha_1}{1 - \alpha_1} 
+																																	      + \kappa\alpha_1^2\mathbi{E}\left[\epsilon_{t-1}^4 \right] \\
+												& = \kappa\frac{\alpha_0^2 - \alpha_0^2\alpha_1 + 2\alpha_0^2\alpha_1}{1 - \alpha_1} 
+																																	      + \kappa\alpha_1^2\mathbi{E}\left[\epsilon_{t}^4 \right] \\
+												& = \frac{\kappa\alpha_0^2(1 + \alpha_1)}{(1 - \alpha_1)(1 - \kappa\alpha_1^2)} \square.																																	     
+\end{aligned}
+\end{equation}
+
+\end{solution}
+
+
+\subsection{d}
+\label{subsection_3_d}
+What constraints of $\alpha_0$, $\alpha_1$ must be made in \ref{subsection_3_c}, to maintain 4-th order stationarity (bounded).
+
+\begin{solution}
+For 4-th order stationarity $\alpha_1 \ne 1$ and $|\alpha_1| \ne \kappa\square$.
+
+\end{solution}
+
+
+
+\subsection{e}
+\label{subsection_3_e}
+The kurtosis of  $\epsilon_t$ is:
+
+\begin{equation}
+\nonumber
+\kappa_{\epsilon} = \frac{\mathbi{E}[\epsilon_t^4]}{\mathbi{E}[\epsilon_t^2]}
+\end{equation}
+
+(The fourth moment is normalized to be scale-free). If the distribution $Z_t$ is Gaussian/Normal 
+(i.e., the scaled, conditional error distribution of $\epsilon_t$), does the unconditional distribution of $\epsilon_t$, 
+have a higher kurtosis than that of the Gaussian distribution, (i.e., heavier tails)? 
+
+\begin{solution}
+
+\begin{equation}
+\begin{aligned}
+\kappa_{\epsilon} & = \frac{\mathbi{E}[\epsilon_t^4]}{\left\{\mathbi{E}[\epsilon_t^2]\right\}^2} \\
+								  & = \frac{\kappa\alpha_0^2(1 + \alpha_1)}{(1 - \alpha_1)(1 - \kappa\alpha_1^2)} \left(\frac{\alpha_0}{1 - \alpha_1}\right)^{-2} \\
+									& = \frac{\kappa(1 - \alpha_1^2)}{(1 - \kappa\alpha_1^2)} \\								
+\end{aligned}
+\end{equation}
+
+Setting $\kappa = 3$ for Normal distribution of $Z_t$:
+
+\begin{equation}
+\begin{aligned}
+\kappa_{\epsilon} & = \frac{3(1 - \alpha_1^2)}{(1 - 3\alpha_1^2)} \\
+									& = 3 \cdot \frac{(1 - \alpha_1^2)}{(1 - 3\alpha_1^2)} \\
+\end{aligned}
+\end{equation}
+
+for $\kappa_{\epsilon}$ to be higher than that of Normal ($\kappa_{\epsilon} = 3$) the factor
+
+\begin{equation}
+\nonumber
+\frac{(1 - \alpha_1^2)}{(1 - 3\alpha_1^2)} 
+\end{equation}
+
+must be greater than 1:
+
+\begin{equation}
+\begin{aligned}
+\frac{(1 - \alpha_1^2)}{(1 - 3\alpha_1^2)} & \geq 1 \\
+                              - \alpha_1^2 & \geq - 3\alpha_1^2 \\
+															  \alpha_1^2 & \leq   3\alpha_1^2 \\
+\end{aligned}
+\end{equation}
+
+As we are comparing squares therefore above is always true. 
+It means that distribution of $\kappa_{\epsilon}$ has kurtosis higher than normal even if $Z_t$ is normally distributed.$\square$
+
+\end{solution}

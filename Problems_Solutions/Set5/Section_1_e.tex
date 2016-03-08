@@ -1,0 +1,102 @@
+\subsection{e}
+A sequence of estimators $\mathit{\hat{\Theta}_n}$ for parameter $\mathit{\Theta}$, is weakly consistent if 
+\begin{equation}
+\lim_{n \to \infty} Pr(|\mathit{\hat{\Theta}_n - \Theta}|) = 0
+\end{equation}
+For each of $\mathit{\hat{\mu}_n}$ and $\mathit{\hat{\sigma}^2}$, determine whether the sequence of estimators is weakly consistent.
+
+%Solution 1
+
+The limit should be written as this:
+\begin{equation}
+\lim_{n \to \infty} Pr(|\mathit{\hat{\Theta}_n - \Theta}| \geq \epsilon) = 0
+\end{equation}
+
+\begin{solution}
+Solution for $\hat{\mu}$.
+
+The probability can be rewritten as:
+\begin{equation}
+\begin{split}
+Pr(|\hat{\mu}_n - \mu| \geq \epsilon) 
+	 & = Pr[(\hat{\mu}_n \leq  \mu - \epsilon) \quad \cap \quad (\hat{\mu}_n \geq  \mu + \epsilon)], \bigvee \epsilon > 0 \\ 
+	 & = F(\mu - \epsilon) + \left(1 -  F(\mu + \epsilon)\right)
+\end{split}
+\end{equation}
+
+where: $F(x)$ is CDF of X.
+
+From \ref{section_1_b} we know that $\hat{\mu} \thicksim \mathbi(N)\left(\mu, \frac{\sigma^2}{n}\right)$ and 
+
+\begin{equation}
+\begin{split}
+Pr(|\mathit{\hat{\Theta}_n - \Theta}| \geq \epsilon) 
+	 & = \frac{1}{\sqrt{2\pi\frac{\sigma^2}{n}}}\int_{-\infty}^{\mu-\epsilon}\exp\left(\frac{-(x-\mu)^2}{\frac{\sigma^2}{n}}\right)dx 
+				+ \frac{1}{\sqrt{2\pi\frac{\sigma^2}{n}}}\int_{\mu+\epsilon}^{\infty}\exp\left(\frac{-(x-\mu)^2}{\frac{\sigma^2}{n}}\right)dx \\
+	 & = \frac{2}{\sqrt{2\pi\frac{\sigma^2}{n}}}\int_{-\infty}^{-\epsilon}\exp\left(\frac{-z^2}{\frac{\sigma^2}{n}}\right)dz 
+	   = 1 - \frac{1}{\sqrt{2\pi\frac{\sigma^2}{n}}}\int_{-\epsilon}^{\epsilon}\exp\left(\frac{-z^2}{\frac{\sigma^2}{n}}\right)dz \\
+	&  = 1 - 1 = 0\square
+\end{split}
+\end{equation}
+ 
+where: $z=x-\mu$.
+
+The solution of last integral is derived in \ref{gaussian_integral_solution}.
+
+\end{solution}
+
+\begin{solution}
+Solution for $\hat{\sigma}^2$.
+
+From \ref{section_1_c} we know that $\frac{n\hat{\sigma}^2_n}{\sigma^2} \thicksim \chi^2_{n-1}$. 
+
+From Central Limit Theorem (CLT) \eqref{CLT} we know that any sequence of n i.i.d r.v's with $\mathbb{E}(X_i) = \mu$ and $Var(X_i) = \sigma$ converges to normal distribution as n approaches infinity. 
+
+Therefore : 
+
+\begin{equation}
+\begin{aligned}
+\frac{\hat{\sigma}^2}{\sigma^2} & \thicksim \frac{1}{n}\chi^2_{n-1}	
+																	\thicksim \frac{1}{n}\frac{n-1}{n-1}\chi^2_{n-1}	
+																	\thicksim \frac{n-1}{n}\mathbi{N}\left(\mu_{\chi_1^2}, \frac{\sigma_{\chi_1^2}^2}{n-1}\right) 
+																  \thicksim \frac{n-1}{n}\mathbi{N}\left(1, \frac{2}{n-1}\right) \\
+								\hat{\sigma}^2	& \thicksim \mathbi{N}\left(\frac{n-1}{n}\sigma^2, \frac{2(n-1)}{n^2}\sigma^4\right)
+																	\thicksim \mathbi{N}\left(\mu_{\hat{\sigma}^2}, \sigma^2_{\hat{\sigma}^2}\right)
+\end{aligned}																
+\end{equation}
+
+We can rewrite probability inequality for consistency as :
+
+\begin{equation}
+\begin{split}
+Pr(|\hat{\sigma}^2_n - \sigma^2| \geq \epsilon) 
+	 =  Pr( \sigma^2_n - \epsilon \geq \hat{\sigma}^2 \geq \sigma^2 + \epsilon) = 0, \bigvee \epsilon\geq 0, n \to \infty
+\end{split}
+\end{equation}
+
+Let's solve for value of the probability
+
+\begin{equation}
+\begin{split}
+Pr( \sigma^2 - \epsilon \geq \hat{\sigma}^2_n \geq \sigma^2 + \epsilon)
+   =1 - \int_{\sigma^2-\epsilon}^{\sigma^2+\epsilon}\frac{1}{\sqrt{2\pi\sigma^2_{\hat{\sigma}^2}}}\exp\left(\frac{-(x - \mu_{\hat{\sigma}^2})^2}{2\sigma^2_{\hat{\sigma}^2}}\right)dx
+\end{split}
+\end{equation}
+
+Using solution from \ref{gaussian_integral_solution} and knowing that $\lim_{n \to \infty}\sigma^2_{\hat{\sigma}^2} = \lim_{n \to \infty}\frac{n-1}{n^2}2\sigma^4 = \lim_{n \to \infty} \frac{1}{n}2\sigma^4 $ and $\lim_{n \to \infty}\frac{n-1}{n}\sigma^2 = \sigma^2 $ we can write integral:
+
+\begin{equation}
+\int_{\sigma^2-\epsilon}^{\sigma^2+\epsilon}\frac{1}{\sqrt{2\pi\sigma^2_{\hat{\sigma}^2}}}\exp\left(\frac{-(x - \mu_{\hat{\sigma}^2})^2}{2\sigma^2_{\hat{\sigma}^2}}\right)dx
+= \int_{-\epsilon}^{\epsilon}\frac{1}{\sqrt{2\pi\sigma^2_{\hat{\sigma}^2}}}\exp\left(\frac{-x^2}{2\sigma^2_{\hat{\sigma}^2}}\right)dx = 1
+\end{equation}
+
+Therefore: 
+\begin{equation}
+\begin{split}
+Pr(|\hat{\sigma}^2_n - \sigma^2| \geq \epsilon) = 1 - 1 = 0 \square 
+\end{split}
+\end{equation}
+
+\end{solution}
+
+In summary both $\hat{\mu}$ and $\hat{\sigma}^2$ are weakly consistent.

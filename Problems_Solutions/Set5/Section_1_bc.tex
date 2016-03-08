@@ -1,0 +1,111 @@
+
+\subsection{b} Derive the distribution of $\hat{\mu}_n$; give specific formulas for the expectation and variance of $\hat{\mu}_n$.
+\label{section_1_b}
+\begin{equation}
+\hat{\mu} = \frac{1}{n}\sum_{i=1}^{n}Y_i
+\end{equation}
+where: $Y_i \thicksim \mathbi{N}\left(\mu,\sigma^2\right)$.
+
+\begin{equation}
+Y_i \thicksim \mathbi{N}(\mu,\sigma^2) \Rightarrow \frac{Y_i}{n} \thicksim \mathbi{N}(\frac{\mu}{n},\frac{\sigma^2}{n^2})
+\end{equation}
+\begin{equation}
+\mathbi{M}_{\frac{Y_i}{n}}(t)=\exp\left(\frac{\mu t}{n} + \frac{\sigma^2 t^2}{2n^2}\right)
+\end{equation}
+
+where: $\mathbi{M}_X(t)$ is moment generating function of r.v X.\\
+
+\begin{solution}
+From properties of moment generating function we know that MGF of sum of r.v. is equal to product of individual MGF's:
+\begin{equation}
+\mathbi{M}_{\sum_{i=1}^{n}X_i}(t) = \prod_{i=1}^{n}\mathbi{M}_{X_i}(t)
+\label{mom_gen_fun_sum}
+\end{equation}
+Therefore:
+\begin{equation}
+\mathbi{M}_{\hat{\mu}}(t) = \prod_{i=1}^{n}\mathbi{M}_{\frac{Y_i}{n}}(t) = \exp\left(\frac{n\mu t}{n} + \frac{n\sigma^2 t^2}{2n^2}\right) = \exp\left(\mu t + \frac{\sigma^2 t^2}{2n}\right)
+\end{equation}
+From this follows that $\hat{\mu} \thicksim \mathbi{N}\left(\mu,\frac{\sigma^2}{n}\right)$ and:
+\begin{equation}
+\begin{split}
+\mathbb{E}\left(\hat{\mu}\right) & = \mu \\
+\mathbb{V}\left(\hat{\mu}\right) & = \frac{\sigma^2}{n}\square
+\end{split}
+\end{equation}
+
+\end{solution}
+
+
+\subsection{c} Derive the distribution of $\hat{\sigma}^2$.
+\label{section_1_c}
+\begin{equation}
+\hat{\sigma}^2 = \frac{1}{n}\sum_{i=1}^{n}\left(Y_i - \hat{\mu}\right)^2
+\end{equation}
+
+\begin{solution}
+Let's derive distribution of $\frac{\left(Y_i - \hat{\mu}\right)^2}{n}$ starting by finding distribution of $\frac{\left(Y_i - \hat{\mu}\right)}{\sqrt{n}}$:
+
+From \eqref{mom_gen_fun_sum} we know that:
+\begin{equation}
+\frac{\left(Y_i - \hat{\mu}\right)}{\sqrt{n}} \thicksim \mathbi{N}()
+\end{equation}
+
+However individual sums $(Y_i - \hat{\mu})$ are not independent r.v.'s therefore we need to split them to sum of independent ones to be able to to find distribution of sum of residuals $(Y_i - \hat{\mu})^2$.
+\begin{equation}
+\begin{split}
+\left(Y_i - \hat{\mu}\right)  & = \left((Y_i - \mu) - (\hat{\mu} - \mu)\right) \\
+														  & = (Y_i - \mu) - \sum_{i=1}^{n}\frac{(Y_i - \mu)}{n} 
+														    = \frac{n-1}{n}(Y_i - \mu) - \sum_{i \ne j}^{n}\frac{(Y_j - \mu)}{n}
+\end{split}
+\end{equation}
+
+\begin{equation}
+\begin{aligned}
+\left(Y_i - \hat{\mu}\right)^2 & = \left(\frac{n-1}{n}(Y_i - \mu) - \sum_{i \ne j}^{n}\frac{(Y_j - \mu)}{n}\right)^2 \\
+															 & = \Bigg(\frac{(n-1)^2}{n^2}(Y_i - \mu)^2  + \sum_{j \ne i}^{n}\frac{(Y_j -\mu)^2}{n^2} \\
+															 & \qquad - 2\sum_{j \ne i}^{n}\frac{(n-1)(Y_i -\mu)(Y_j -\mu)}{n^2}
+															          + 2\sum_{k \ne j \ne i}^{n}\frac{(Y_k -\mu)(Y_j -\mu)}{n^2}\Bigg)	
+\end{aligned}
+\end{equation}
+
+\begin{equation}
+\begin{aligned}
+\sum_{i=1}^n\left(Y_i - \hat{\mu}\right)^2 & = \sum_{i=1}^n\frac{(n-1)^2}{n^2}(Y_i - \mu)^2 + (n-1)\sum_{j \ne i}^{n}\frac{(Y_i - \mu)^2}{n^2} \\
+																					 & \qquad - 2\sum_{i}^{n}\sum_{j \ne i}^{n}\frac{(n-1)(Y_i -\mu)(Y_j -\mu)}{n^2} 
+																					          + (n-2)\sum_{i}^{n}\sum_{j \ne i}^{n}\frac{(Y_i -\mu)(Y_j -\mu)}{n^2} \\
+																					 & = \frac{(n-1)}{n}\sum_{i=1}^n(Y_i - \mu)^2 
+																					          - \sum_{i}^{n}\sum_{j \ne i}^{n}\frac{(Y_i -\mu)(Y_j -\mu)}{n} \\
+\label{sigma_hat_expansion}																										
+\end{aligned}
+\end{equation}
+
+From \eqref{sigma_hat_expansion} one can easily derive expected value of $\hat{\sigma}^2$:
+
+\begin{equation}
+\begin{aligned}
+\mathbb{E}(\hat{\sigma^2}) & = \mathbb{E}\left(\frac{1}{n}\sum_{i=1}^n\left(Y_i - \hat{\mu}\right)^2 \right) \\
+													 & = \mathbb{E}\left(\frac{(n-1)}{n^2}\sum_{i=1}^n(Y_i - \mu)^2 
+																					          - \sum_{i}^{n}\sum_{j \ne i}^{n}\frac{(Y_i -\mu)(Y_j -\mu)}{n^2} \right) \\
+													 & = \frac{(n-1)}{n^2}\sigma^2 - \sum_{i}^{n}\sum_{j \ne i}^{n}\mathbb{E}\left(\frac{(Y_i -\mu)(Y_j -\mu)}{n^2}\right) 
+													   = \frac{(n-1)}{n^2}\sigma^2 \square
+\end{aligned}
+\end{equation}
+From the expected value of $\mathbb{E}(\hat{\sigma}^2)$ we can see that it is not equal to $\sigma$ therefore $\hat{\sigma}^2$ is an biased estimator.
+
+According to many publications \cite[p.341]{Rohathi2001}\cite[p.92]{Lehman1998}\cite[p.72]{Forbes2010}, $\frac{n\hat{\sigma}^2}{\sigma} \thicksim \chi_{n-1}^2$. Proof is derived in Appendix \ref{sigma_hat_distribution_2}.
+
+This gives: 
+\begin{equation}
+\frac{n\hat{\sigma}^2}{\sigma} \thicksim \chi_{n-1}^2;
+\end{equation}
+
+The variance of $\chi_{n-1}^2$ is $2(n-1)$ this gives variance:
+
+\begin{equation}
+\begin{aligned}
+Var\left(\frac{n\hat{\sigma}^2}{\sigma}\right) & =  2(n-1) \\
+Var\left(\hat{\sigma}^2\right) & = \sigma_{\hat{\sigma}^2} = \sigma^4\frac{2(n-1)}{n^2}\square 
+\end{aligned}
+\end{equation}
+
+\end{solution}

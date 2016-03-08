@@ -1,0 +1,74 @@
+\section{Derivation of distribution of $\hat{\sigma}^2$}
+\label{sigma_hat_distribution_3}
+
+Using steps similar to these in \ref{sigma_hat_distribution_2} let's start by showing that $\hat{\mu}$ and $\hat{\sigma}^2$ are independent.
+
+\begin{equation}
+\begin{aligned}
+     \hat{\mu} &= \frac{1}{T}\sum_{i=1}^{n}Y_i \\
+\hat{\sigma}^2 &= \frac{1}{n}\sum_{i=1}^{n}\frac{\left(Y_i - \hat{\mu}h_i\right)^2}{h_i}
+\end{aligned}
+\end{equation}
+
+We compute MGF of $\hat{\mu}$ and $Y_1-\hat{\mu}h_1, Y_2-\hat{\mu}h_2, \ldots, Y_n-\hat{\mu}h_n$ as follows:
+
+\begin{equation}
+\begin{aligned}
+\mathbi{M}(t, t_1, t_2, \ldots, t_n) & = \mathbi{E}\left\{\exp\left[t\hat{\mu} + t_1(Y_1-\hat{\mu}h_1) + t_2(Y_2-\hat{\mu}h_2) + \cdots + t_n(Y_n-\hat{\mu}h_n)\right]\right\} \\
+																		 & = \mathbi{E}\left\{\exp\left[\sum_{i=1}^nt_iY_i - \left(\sum_{i=1}^nt_ih_i - t\right)\hat{\mu}\right]\right\} \\
+																		 & = \mathbi{E}\left\{\exp\left[\sum_{i=1}^nY_i\left(t_i - \frac{t_1h_1 + t_2h_2 + \ldots + t_nh_n - t}{T}\right)\right]\right\} \\
+																		 & = \mathbi{E}\left\{\exp\left[\sum_{i=1}^nY_i\left(\frac{Tt_i - T\bar{t} + t}{T}\right)\right]\right\} 
+																							\qquad \left(\textit{where : }\bar{t} = \frac{1}{T}\sum_{i=1}^nt_ih_i\right)  \\
+																		 & = \prod_{i=1}^n\mathbi{E}\left\{\exp\left[Y_i\left(\frac{t + T(t_i - \bar{t}) }{T}\right)\right]\right\} \\
+																		 & = \prod_{i=1}^n\exp\left\{\mu h_i\frac{1}{T}\left[t + T(t_i -\bar{t})\right] + \frac{\sigma^2 h_i}{2}\frac{1}{T^2}\left[t + T(t_i -\bar{t})\right]^2\right\} \\
+																		 & = \exp\left\{\frac{\mu}{T}\left[Tt + T\sum_{i=1}^nh_i(t_i -\bar{t})\right] + \frac{\sigma^2}{2T^2}\sum_{i=1}^nh_i\left[t + T(t_i -\bar{t})\right]^2\right\} \\
+																		 & = \exp\left(\mu t\right)\exp\left\{\frac{\sigma^2}{2T^2}\left[Tt^2 + T^2\sum_{i=1}^nh_i(t_i -\bar{t})^2\right]^2\right\} \\
+																		 & = \exp\left(\mu t + \frac{\sigma^2t^2}{2T}\right)\exp\left[\frac{\sigma^2}{2}\sum_{i=1}^nh_i(t_i -\bar{t})^2\right] \\
+																		 & = \mathbi{M}_{\hat{\mu}}(t)\mathbi{M}_{Y_1-\hat{\mu}h_1, Y_2-\hat{\mu}h_2, \ldots, Y_n-\hat{\mu}h_n}(t_1, t_2, \ldots, t_n) \\
+																		 & = \mathbi{M}(t, 0, 0, \ldots,0)\mathbi{M}(0, t_1, t_2, \ldots, t_n)
+\end{aligned}
+\end{equation}
+
+Therefore $\hat{\mu}$ and $\hat{\sigma}^2$ are independent.
+
+Now we will try to prove that $\frac{n\hat{\sigma}^2}{\sigma^2} \thicksim \chi_{n-1}^2$.
+
+Since :
+\begin{equation}
+\sum_{i=1}^n\frac{(Y_i - \mu h_i)^2}{\sigma^2} \thicksim \chi_{n}^2, \qquad \frac{(\hat{\mu} - \mu)^2}{\sigma^2} \thicksim \chi_{1}^2
+\end{equation}
+
+Lets derive expression for $n\hat{\sigma}^2$:
+
+\begin{equation}
+\begin{aligned}
+\label{eq:ap_sigma_square_expansion_2}
+n\hat{\sigma}^2 &= \sum_{i=1}^n\frac{(Y_i - \hat{\mu}h_i)^2}{h_i} \\
+								&= \sum_{i=1}^n\frac{\left[(Y_i - \mu h_i) - h_i(\hat{\mu} - \mu )\right]^2}{h_i} \\
+								&= \sum_{i=1}^n\frac{\left[(Y_i - \mu h_i)^2 -2h_i(Y_i - \mu h_i)(\hat{\mu} - \mu) + h_i^2(\hat{\mu} - \mu)^2\right]}{h_i} \\
+								&= \sum_{i=1}^n\frac{(Y_i - \mu h_i)^2}{h_i} -2(\hat{\mu} - \mu)\sum_{i=1}^n(Y_i - \mu h_i) + \sum_{i=1}^nh_i(\hat{\mu} - \mu)^2 \\
+								&= \sum_{i=1}^n\frac{(Y_i - \mu h_i)^2}{h_i} -2(\hat{\mu} - \mu)\left(T\hat{\mu} - T\mu\right) + T(\hat{\mu} - \mu)^2 \\
+								&= \sum_{i=1}^n\frac{(Y_i - \mu h_i)^2}{h_i} -T(\hat{\mu} - \mu)^2 \\
+\end{aligned}
+\end{equation}
+
+From above we can see that:
+
+\begin{equation}
+\begin{aligned}
+\mathbi{E}\left\{\exp\left[\sum_{i=1}^n\frac{(Y_i - \mu h_i)^2}{\sigma^2h_i}\right]\right\} 
+							&= \mathbi{E}\left\{\exp\left[\frac{T(\hat{\mu} - \mu)^2}{\sigma^2} + \frac{n\hat{\sigma}^2}{\sigma^2}\right]\right\} \\
+							&= \mathbi{E}\left\{\exp\left[\frac{T(\hat{\mu} - \mu)^2}{\sigma^2}\right]\right\}\mathbi{E}\left[\exp\left(\frac{n\hat{\sigma}^2}{\sigma^2}\right)\right] \\
+(1-2t)^\frac{-n}{2} 
+							&= (1-2t)^\frac{-1}{2}\mathbi{E}\left[\exp\left(\frac{n\hat{\sigma}^2}{\sigma^2}\right)\right]  \\
+\mathbi{E}\left[\exp\left(\frac{n\hat{\sigma}^2}{\sigma^2}\right)\right]  
+							&= (1-2t)^\frac{n-1}{2}							
+\end{aligned}
+\end{equation}
+
+From uniqueness of MGF it follows that :
+
+\begin{equation}
+\mathbi{E}\left[\exp\left(\frac{n\hat{\sigma}^2}{\sigma^2}\right)\right]  
+							\thicksim \chi^2_{n-1} \square							
+\end{equation}

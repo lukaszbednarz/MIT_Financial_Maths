@@ -1,0 +1,46 @@
+\subsection{b}
+\label{subsection_2_b}
+Derive the MLE for $\sigma^2$ and its distribution for a fixed set of sampling increments $\{h_i\}:\sum_{i=1}^nh_i=T$.
+
+\begin{solution} 
+Finding MLE for $\sigma^2$.
+
+Log-likelihood function:
+\begin{equation}
+\label{e:loglikelihood2b}
+\begin{aligned}
+\mathit{l}\left(\mu,\sigma^2|Y_1, Y_2, \ldots, Y_n\right) & = \sum_{i=1}^n\ln\left(\frac{1}{\sqrt{2\pi\sigma^2h_i}}\right) + \sum_{i=1}^n\left(\frac{-(Y_i-\mu h_i)^2}{2\sigma^2h_i}\right)
+\end{aligned}
+\end{equation}
+
+To find maximum of log-likelihood function from \eqref{e:loglikelihood2a} we take derivative with respect to $\sigma^2$:
+
+\begin{equation}
+\begin{aligned}
+\frac{\partial}{\partial(\sigma^2)}\mathit{l}\left(\mu,\sigma^2|Y_1, Y_2, \ldots, Y_n\right) 
+								& = \sum_{i=1}^n\frac{-2\pi h_i\sqrt{2\pi\sigma^2h_i}}{2(2\pi\sigma^2h_i)^{\frac{3}{2}}}
+										+ \sum_{i=1}^n\frac{(Y_i-\hat{\mu} h_i)^2}{2\sigma^4h_i} \\
+								& = \sum_{i=1}^n\frac{-1}{2\sigma^2}
+										+ \sum_{i=1}^n\frac{(Y_i-\hat{\mu} h_i)^2}{2\sigma^4h_i}
+\end{aligned}
+\end{equation}
+
+And set it to zero: 
+
+\begin{equation}
+\begin{aligned}
+\sum_{i=1}^n\frac{-1}{2\sigma^2} + \sum_{i=1}^n\frac{(Y_i-\hat{\mu} h_i)^2}{2\sigma^4h_i} & = 0 \\
+																												  \sum_{i=1}^n\frac{1}{2\sigma^2} & = \sum_{i=1}^n\frac{(Y_i-\hat{\mu} h_i)^2}{2\sigma^4h_i} \\
+																												                   \hat{\sigma}^2 & = \frac{1}{n}\sum_{i=1}^n\frac{(Y_i-\hat{\mu} h_i)^2}{h_i}
+\end{aligned}
+\end{equation}
+
+\end{solution}
+
+\begin{solution}
+Finding Distribution for $\hat{\sigma}^2$.
+
+Similairly to previous chapter the $\hat{\sigma}^2 \thicksim \chi_{n-1}^2$. The proof is given in \ref{sigma_hat_distribution_3}.
+
+
+\end{solution}

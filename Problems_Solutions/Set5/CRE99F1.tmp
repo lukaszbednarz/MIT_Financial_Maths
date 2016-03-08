@@ -1,0 +1,143 @@
+\documentclass{amsart}
+%
+\usepackage{amsmath}%
+\usepackage{amsfonts}%
+\usepackage{amssymb}
+%\usepackage[parfill]{parskip}
+
+\setlength{\textwidth}{\paperwidth}
+\addtolength{\textwidth}{-2in}
+\calclayout
+
+
+%\usepackage{graphicx}
+\newtheorem{solution}{Solution}
+
+% Document markup starts here
+\begin{document}
+
+% Definitions
+\def\mathbi#1{\textbf{\em #1}}
+
+% Document body starts here
+\title[Short Title (for the running head)]{Solutions for problem Set 5}
+\author{Lukasz Bednarz}
+\date{January 28, 2016}
+\maketitle
+
+% Section 1
+\section{Sample Estimators of Diffusion Process Volatility and Drift}
+
+\subsection{b} Derive the distribution of $\hat{\mu}_n$; give specific formulas for the expectation and variance of $\hat{\mu}_n$.
+\begin{equation}
+\hat{\mu} = \frac{1}{n}\sum_{i=1}^{n}Y_i
+\end{equation}
+where: $Y_i \thicksim \mathbi{N}\left(\mu,\sigma^2\right)$.
+
+\begin{equation}
+Y_i \thicksim \mathbi{N}(\mu,\sigma^2) \Rightarrow \frac{Y_i}{n} \thicksim \mathbi{N}(\frac{\mu}{n},\frac{\sigma^2}{n^2})
+\end{equation}
+\begin{equation}
+\mathbi{M}_{\frac{Y_i}{n}}(t)=\exp\left(\frac{\mu t}{n} + \frac{\sigma^2 t^2}{2n^2}\right)
+\end{equation}
+
+where: $\mathbi{M}_X(t)$ is moment generating function of r.v X.\\
+From properties of moment generating function we know that MGF of sum of r.v. is equal to product of individual MGF's:
+\begin{equation}
+\mathbi{M}_{\sum_{i=1}^{n}X_i}(t) = \prod_{i=1}^{n}\mathbi{M}_{X_i}(t)
+\label{mom_gen_fun_sum}
+\end{equation}
+Therefore:
+\begin{equation}
+\mathbi{M}_{\hat{\mu}}(t) = \prod_{i=1}^{n}\mathbi{M}_{\frac{Y_i}{n}}(t) = \exp\left(\frac{n\mu t}{n} + \frac{n\sigma^2 t^2}{2n^2}\right) = \exp\left(\mu t + \frac{\sigma^2 t^2}{2n}\right)
+\end{equation}
+From this follows that $\hat{\mu} \thicksim \mathbi{N}\left(\mu,\frac{\sigma^2}{n}\right)$ and:
+\begin{equation}
+\begin{split}
+\mathbb{E}\left(\hat{\mu}\right) & = \mu \\
+\mathbb{V}\left(\hat{\mu}\right) & = \frac{\sigma^2}{n}\square
+\end{split}
+\end{equation}
+
+\subsection{c} Derive the distribution of $\hat{\sigma}^2$.
+\begin{equation}
+\hat{\sigma}^2 = \frac{1}{n}\sum_{i=1}^{n}\left(Y_i - \hat{\mu}\right)^2
+\end{equation}
+Let's derive distribution of $\frac{\left(Y_i - \hat{\mu}\right)^2}{n}$ starting by finding distribution of $\frac{\left(Y_i - \hat{\mu}\right)}{\sqrt{n}}$:
+
+From \eqref{mom_gen_fun_sum} we know that:
+\begin{equation}
+\frac{\left(Y_i - \hat{\mu}\right)}{\sqrt{n}} \thicksim \mathbi{N}()
+\end{equation}
+
+However individual sums $(Y_i - \hat{\mu})$ are not independent r.v.'s therefore we need to split them to sum of independent ones to be able to to find distribution of sum of residuals $(Y_i - \hat{\mu})^2$.
+\begin{equation}
+\begin{split}
+\left(Y_i - \hat{\mu}\right) & = \left((Y_i - \mu) - (\hat{\mu} - \mu)\right) \\
+														 & = (Y_i - \mu) - \sum_{i=1}^{n}\frac{(Y_i - \mu)}{n} \\
+														 & = \frac{n-1}{n}(Y_i - \mu) - \sum_{i \ne j}^{n}\frac{(Y_j - \mu)}{n}
+\end{split}
+\end{equation}
+
+\begin{equation}
+\begin{aligned}
+\left(Y_i - \hat{\mu}\right)^2 & = \left(\frac{n-1}{n}(Y_i - \mu) - \sum_{i \ne j}^{n}\frac{(Y_j - \mu)}{n}\right)^2 \\
+															 & = \Bigg(\frac{(n-1)^2}{n^2}(Y_i - \mu)^2  + \sum_{j \ne i}^{n}\frac{(Y_j -\mu)^2}{n^2} \\
+															 & \qquad - 2\sum_{j \ne i}^{n}\frac{(n-1)(Y_i -\mu)(Y_j -\mu)}{n^2} \\
+															 & \qquad + 2\sum_{k \ne j \ne i}^{n}\frac{(Y_k -\mu)(Y_j -\mu)}{n^2}\Bigg)	
+\end{aligned}
+\end{equation}
+
+\begin{equation}
+\begin{aligned}
+\sum_{i=1}^n\left(Y_i - \hat{\mu}\right)^2 & = \sum_{i=1}^n\frac{(n-1)^2}{n^2}(Y_i - \mu)^2 + (n-1)\sum_{j \ne i}^{n}\frac{(Y_i - \mu)^2}{n^2} \\
+																					 & \qquad - 2\sum_{i}^{n}\sum_{j \ne i}^{n}\frac{(n-1)(Y_i -\mu)(Y_j -\mu)}{n^2} \\
+																					 & \qquad \qquad + (n-2)\sum_{i}^{n}\sum_{j \ne i}^{n}\frac{(Y_i -\mu)(Y_j -\mu)}{n^2} \\
+																					 & = \frac{(n-1)}{n}\sum_{i=1}^n(Y_i - \mu)^2 + (n-1)\sum_{j \ne i}^{n}\frac{(Y_i - \mu)^2}{n^2} \\
+																					 & \qquad - \sum_{i}^{n}\sum_{j \ne i}^{n}\frac{(Y_i -\mu)(Y_j -\mu)}{n} \\
+\end{aligned}
+\end{equation}
+
+
+
+Let's start by deriving distribution for  $(Y_k -\mu)(Y_j -\mu)$ and $(Y_k -\mu)(Y_j -\mu)$  wher $k \ne j \ne i$.
+Let Z = $(Y_i -\mu)(Y_j -\mu)$;
+
+
+
+
+
+\subsection{e}
+A sequence of estimators $\mathit{\hat{\Theta}_n}$ for parameter $\mathit{\Theta}$, is weakly consistent if 
+\begin{equation}
+\lim_{n \to \infty} Pr(|\mathit{\hat{\Theta}_n - \Theta}|) = 0
+\end{equation}
+For each of $\mathit{\hat{\mu}_n}$ and $\mathit{\hat{\sigma}^2}$, determine whether the sequence of estimators is weakly consistent.
+
+%Solution 1
+\begin{solution}\hspace{\fill}\\
+
+The limit should be written as this:
+\begin{equation}
+\lim_{n \to \infty} Pr(|\mathit{\hat{\Theta}_n - \Theta}| \geq \epsilon) = 0
+\end{equation}
+
+The probability can be rewritten as:
+\begin{equation}
+\begin{split}
+Pr(|\mathit{\hat{\Theta}_n - \Theta}| \geq \epsilon) 
+	 & = Pr[(\mathit{\hat{\Theta}_n} \leq  \Theta + \epsilon) \quad \cap \quad (\mathit{\hat{\Theta}_n} \geq  \Theta -\epsilon)] \\ 
+	 & = F(\mathit{\Theta} + \epsilon) - F(\mathit{\Theta} - \epsilon)
+\end{split}
+\end{equation}
+
+where: $F(x)$ is CDF of x.
+
+
+
+
+
+\end{solution}
+
+
+\end{document}

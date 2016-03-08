@@ -1,0 +1,73 @@
+\section{Derivation of distribution of $\hat{\sigma}^2$}
+\label{sigma_hat_distribution_2}
+
+Using steps in \cite[p. 339-341]{Rohathi2001} let's start by showing that $\hat{\mu}$ and $\hat{\sigma}^2$ are independent.
+\begin{equation}
+\begin{aligned}
+     \hat{\mu} &= \frac{1}{n}\sum_{i=1}^{n}Y_i \\
+\hat{\sigma}^2 &= \frac{1}{n}\sum_{i=1}^{n}(Y_i - \hat{\mu})^2
+\end{aligned}
+\end{equation}
+
+We compute MGF of $\hat{\mu}$ and $Y_1-\hat{\mu}, Y_2-\hat{\mu}, \ldots, Y_n-\hat{\mu}$ as follows:
+
+\begin{equation}
+\begin{aligned}
+\mathbi{M}(t, t_1, t_2, \ldots, t_n) & = \mathbi{E}\left\{\exp\left[t\hat{\mu} + t_1(Y_1-\hat{\mu}) + t_2(Y_2-\hat{\mu}) + \cdots + t_n(Y_n-\hat{\mu})\right]\right\} \\
+																		 & = \mathbi{E}\left\{\exp\left[\sum_{i=1}^nt_iY_i - \left(\sum_{i=1}^nt_i - t\right)\hat{\mu}\right]\right\} \\
+																		 & = \mathbi{E}\left\{\exp\left[\sum_{i=1}^nY_i\left(t_i - \frac{t_1 + t_2 + \ldots + t_n - t}{n}\right)\right]\right\} \\
+																		 & = \mathbi{E}\left\{\exp\left[\sum_{i=1}^nY_i\left(\frac{nt_i - n\bar{t} + t}{n}\right)\right]\right\} 
+																							\qquad \left(\textit{where : }\bar{t} = \frac{1}{n}\sum_{i=1}^nt_i\right)  \\
+																		 & = \prod_{i=1}^n\mathbi{E}\left\{\exp\left[Y_i\left(\frac{t + n(t_i - \bar{t}) }{n}\right)\right]\right\} \\
+																		 & = \prod_{i=1}^n\exp\left\{\mu\frac{1}{n}\left[t + n(t_i -\bar{t})\right] + \frac{\sigma^2}{2}\frac{1}{n^2}\left[t + n(t_i -\bar{t})\right]^2\right\} \\
+																		 & = \exp\left\{\frac{\mu}{n}\left[nt + n\sum_{i=1}^n(t_i -\bar{t})\right] + \frac{\sigma^2}{2n^2}\sum_{i=1}^n\left[t + n(t_i -\bar{t})\right]^2\right\} \\
+																		 & = \exp\left(\mu t\right)\exp\left\{\frac{\sigma^2}{2n^2}\left[nt^2 + n^2\sum_{i=1}^n(t_i -\bar{t})^2\right]^2\right\} \\
+																		 & = \exp\left(\mu t + \frac{\sigma^2t^2}{2n}\right)\exp\left[\frac{\sigma^2}{2}\sum_{i=1}^n(t_i -\bar{t})^2\right] \\
+																		 & = \mathbi{M}_{\hat{\mu}}(t)\mathbi{M}_{Y_1-\hat{\mu}, Y_2-\hat{\mu}, \ldots, Y_n-\hat{\mu}}(t_1, t_2, \ldots, t_n) \\
+																		 & = \mathbi{M}(t, 0, 0, \ldots,0)\mathbi{M}(0, t_1, t_2, \ldots, t_n)
+\end{aligned}
+\end{equation}
+
+Therefore $\hat{\mu}$ and $\hat{\sigma}^2$ are independent.
+
+Now we will try to prove that $\frac{n\hat{\sigma}^2}{\sigma^2} \thicksim \chi_{n-1}^2$.
+
+Since :
+\begin{equation}
+\sum_{i=1}^n\frac{(Y_i - \mu)^2}{\sigma^2} \thicksim \chi_{n}^2, \qquad \frac{(\hat{\mu} - \mu)^2}{\sigma^2} \thicksim \chi_{1}^2
+\end{equation}
+
+Lets derive expression for $n\hat{\sigma}^2$:
+
+\begin{equation}
+\begin{aligned}
+n\hat{\sigma}^2 &= \sum_{i=1}^n(Y_i - \hat{\mu})^2 \\
+								&= \sum_{i=1}^n\left[(Y_i - \mu) - (\hat{\mu} - \mu)\right]^2 \\
+								&= \sum_{i=1}^n\left[(Y_i - \mu)^2 -2(Y_i - \mu)(\hat{\mu} - \mu) + (\hat{\mu} - \mu)^2\right] \\
+								&= \sum_{i=1}^n(Y_i - \mu)^2 -2(\hat{\mu} - \mu)\sum_{i=1}^n(Y_i - \mu) + n(\hat{\mu} - \mu)^2 \\
+								&= \sum_{i=1}^n(Y_i - \mu)^2 -2(\hat{\mu} - \mu)(\sum_{i=1}^nY_i - n\mu) + n(\hat{\mu} - \mu)^2 \\
+								&= \sum_{i=1}^n(Y_i - \mu)^2 -n(\hat{\mu} - \mu)^2 \\
+\end{aligned}
+\end{equation}
+
+From above we can see that:
+
+\begin{equation}
+\begin{aligned}
+\mathbi{E}\left\{\exp\left[\frac{\sum_{i=1}^n(Y_i - \mu)^2}{\sigma^2}\right]\right\} 
+							&= \mathbi{E}\left\{\exp\left[\frac{n(\hat{\mu} - \mu)^2}{\sigma^2} + \frac{n\hat{\sigma}^2}{\sigma^2}\right]\right\} \\
+							&= \mathbi{E}\left\{\exp\left[\frac{n(\hat{\mu} - \mu)^2}{\sigma^2}\right]\right\}\mathbi{E}\left[\exp\left(\frac{n\hat{\sigma}^2}{\sigma^2}\right)\right] \\
+(1-2t)^\frac{-n}{2} 
+							&= (1-2t)^\frac{-1}{2}\mathbi{E}\left[\exp\left(\frac{n\hat{\sigma}^2}{\sigma^2}\right)\right]  \\
+\mathbi{E}\left[\exp\left(\frac{n\hat{\sigma}^2}{\sigma^2}\right)\right]  
+							&= (1-2t)^\frac{n-1}{2}							
+\end{aligned}
+\end{equation}
+
+From uniqueness of MGF it follows that :
+
+\begin{equation}
+\mathbi{E}\left[\exp\left(\frac{n\hat{\sigma}^2}{\sigma^2}\right)\right]  
+							\thicksim \chi^2_{n-1} \square							
+\end{equation}
+

@@ -1,0 +1,75 @@
+\subsection{a} Derive the MLE for $\mu$ and its distribution for a fixed set of sampling increments $\{h_i\}:\sum_{i=1}^nh_i=T$.
+
+\begin{solution} Finding estimate for $\mu$.
+
+The Likelihood function for MLE for $\mu$:
+
+\begin{equation}
+\begin{aligned}
+\mathcal{L}\left(\mu,\sigma^2|Y_1, Y_2, \ldots, Y_n\right) & = Pr(Y_1, Y_2, \ldots, Y_n|\mu, \sigma^2) \\
+																										& = \prod_{i=1}^n\frac{1}{\sqrt{2\pi\sigma^2h_i}}\exp\left(\frac{-(Y_i-\mu h_i)^2}{2\sigma^2h_i}\right)
+\end{aligned}
+\end{equation}
+
+And the log-likelihood function:
+\begin{equation}
+\label{e:loglikelihood2a}
+\begin{aligned}
+\mathit{l}\left(\mu,\sigma^2|Y_1, Y_2, \ldots, Y_n\right) & = \sum_{i=1}^n\ln\left(\frac{1}{\sqrt{2\pi\sigma^2h_i}}\right) + \sum_{i=1}^n\left(\frac{-(Y_i-\mu h_i)^2}{2\sigma^2h_i}\right)
+\end{aligned}
+\end{equation}
+
+To find maximum of log-likelihood function we take derivative with respect to $\mu$:
+
+\begin{equation}
+\begin{aligned}
+\frac{\partial}{\partial\mu}\mathit{l}\left(\mu,\sigma|Y_1, Y_2, \ldots, Y_n\right) 
+								 = \sum_{i=1}^n\frac{2h_i(Y_i-\mu h_i)}{2\sigma^2h_i}
+								 = \sum_{i=1}^n\frac{(Y_i-\mu h_i)}{\sigma^2}
+\end{aligned}
+\end{equation}
+
+Log-likelihood function will be maximized when $\frac{\partial}{\partial\mu}\mathit{l}\left(\mu,\sigma|Y_1, Y_2, \ldots, Y_n\right) = 0$:
+
+\begin{equation}
+\sum_{i=1}^n\frac{(Y_i-\mu h_i)}{\sigma^2} = 0 \Longrightarrow
+								 \sum_{i=1}^n(Y_i-\mu h_i) = 0 \Longrightarrow
+								 \sum_{i=1}^nY_i = \mu\sum_{i=1} h_i
+\end{equation}
+
+\begin{equation}
+\hat{\mu} = \frac{1}{T}\sum_{i=1}^nY_i
+\end{equation}
+
+\end{solution}
+
+\begin{solution} Finding distribution for $\hat{\mu}$.
+
+Since $Y_i \thicksim \mathbi{N}\left(\mu h_i, \sigma^2 h_i\right)$ the Moment Generating Function of $Y_i$ will be:
+
+\begin{equation}
+\mathbi{M}_{Y_i}(t) = \exp\left(\mu h_it + \frac{\sigma^2 h_i t^2}{2}\right);
+\end{equation}
+
+The moment generating function of sum of r.v's is equal to product of their MGF's :
+
+\begin{equation}
+\begin{aligned}
+\mathbi{M}_{Z}(t) & = \prod_{i=1}^{n}\exp\left(\mu h_it + \frac{\sigma^2 h_i t^2}{2}\right) 
+									  = \exp\left(\mu t \sum_{i=1}^{n}h_i + \frac{\sigma^2t^2 \sum_{i=1}^{n}h_i}{2}\right) \\
+									& = \exp\left(\mu Tt + \frac{\sigma^2Tt^2}{2}\right)
+\end{aligned}
+\end{equation}
+
+where $Z=\sum_{i=1}^{n}Y_i$.
+
+
+The $\mathbi{M}_{Z}(t)$ is a MGF of Normal distribution therefore:
+ 
+\begin{equation}
+\begin{aligned}
+\hat{\mu} = \frac{1}{T}Z & \thicksim \mathbi{N}\left(\mu, \frac{\sigma^2}{T}\right)\square
+\end{aligned}
+\end{equation}
+
+\end{solution}

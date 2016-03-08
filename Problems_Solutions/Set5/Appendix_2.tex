@@ -1,0 +1,34 @@
+\section{Derivation of solution of Gaussian integral}
+\label{gaussian_integral_solution}
+
+We will try to derive value for this integral:
+
+\begin{equation}
+I = \frac{1}{\sqrt{2\pi\frac{\sigma^2}{n}}}\int_{-\epsilon}^{\epsilon}\exp\left(\frac{-z^2}{\frac{2\sigma^2}{n}}\right)dz
+\end{equation}
+
+We can try to find value for $I^2$ :
+
+\begin{equation}
+\begin{aligned}
+I^2 & = \frac{1}{\sqrt{2\pi\frac{\sigma^2}{n}}}\int_{-\epsilon}^{\epsilon}\exp\left(\frac{-y^2}{\frac{2\sigma^2}{n}}\right)dy
+			  \times \frac{1}{\sqrt{2\pi\frac{\sigma^2}{n}}}\int_{-\epsilon}^{\epsilon}\exp\left(\frac{-z^2}{\frac{2\sigma^2}{n}}\right)dz \\			
+		& = \frac{1}{2\pi\frac{\sigma^2}{n}}\int_{-\epsilon}^{\epsilon}\int_{-\epsilon}^{\epsilon}\exp\left(\frac{-y^2-z^2}{\frac{2\sigma^2}{n}}\right)dydz			
+\end{aligned}
+\end{equation}
+
+
+Substituting $y=r\sin(\alpha), z=r\cos(\alpha)$, $dxdy = -rdrd\alpha$
+
+\begin{equation}
+\begin{aligned}
+I^2 & = -\frac{1}{2\pi\frac{\sigma^2}{n}}\iint_{D_{\epsilon}}r\exp\left(\frac{-r^2}{\frac{2\sigma^2}{n}}\right)drd\alpha 
+			\geq -\frac{1}{2\pi\frac{\sigma^2}{n}}\int_0^{2\pi}\int_{0}^{\epsilon} r\exp\left(\frac{-r^2}{\frac{2\sigma^2}{n}}\right)drd\alpha	\\
+I^2	&	\geq -\frac{1}{2\pi\frac{\sigma^2}{n}}\int_0^{2\pi}d\alpha\int_{0}^{\epsilon} r\exp\left(\frac{-r^2}{\frac{2\sigma^2}{n}}\right)dr	
+			= -\frac{2\pi}{2\pi\frac{\sigma^2}{n}}\int_{0}^{\epsilon} r\exp\left(\frac{-r^2}{\frac{2\sigma^2}{n}}\right)dr \\
+I^2	&	\geq -\frac{1}{\frac{\sigma^2}{n}}\frac{\sigma^2}{n}\left| \exp\left(\frac{-r^2}{\frac{2\sigma^2}{n}}\right)\right|_0^{\epsilon} 
+			= -\exp\left(\frac{-\epsilon^2}{\frac{2\sigma^2}{n}}\right) + \exp(0)	= 1\square		
+\end{aligned}
+\end{equation}
+
+Because for any $\epsilon > 0$ $\lim_{n \to \infty}\exp\left(\frac{-\epsilon^2}{\frac{2\sigma^2}{n}}\right) = 0$. Therefore $I^2 =  1$.

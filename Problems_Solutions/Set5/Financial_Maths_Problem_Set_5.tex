@@ -1,0 +1,74 @@
+\documentclass{amsart}
+%
+\usepackage{amsmath}%
+\usepackage{amsfonts}%
+\usepackage{amssymb}
+\usepackage{hyperref}
+%\usepackage[parfill]{parskip}
+
+
+\setlength{\textwidth}{\paperwidth}
+\addtolength{\textwidth}{-2in}
+\calclayout
+
+
+%\usepackage{graphicx}
+\newtheorem{solution}{Solution}
+\newtheorem{collary}{Collary}
+
+% Document markup starts here
+\begin{document}
+
+% Definitions
+\def\mathbi#1{\textbf{\em #1}}
+
+% Document body starts here
+\title[Short Title (for the running head)]{Solutions for problem Set 5}
+\author{Lukasz Bednarz}
+\date{January 28, 2016}
+\begin{abstract}
+This is document contains solutions to problem set 5 for MIT online course "Mathematics for Applications in Finance" available at 
+\href{http://ocw.mit.edu/courses/mathematics/18-s096-topics-in-mathematics-with-applications-in-finance-fall-2013/index.htm}{url}.
+
+\end{abstract}
+\maketitle
+
+% Section 1
+\section{Sample Estimators of Diffusion Process Volatility and Drift}
+\input{Section_1_bc}
+\input{Section_1_e}
+
+% Section 2
+\section{}
+\input{Section_2_a}
+\input{Section_2_b}
+\input{Section_2_c}
+
+% Section 3
+\section{ARCH(1) Model Properties}
+\input{Section_3_abc}
+
+% section 4
+\section{Annual Sample Variances of Logarithmic Returns}
+\input{Section_4}
+
+
+\begin{thebibliography}{9}
+\bibitem {Rohathi2001} Rohatgi, V.K., Ehsanes Saleh, A. K. MD.,\textit{An Introduction to 
+Probability and Statistics}, John Wiley \& Sons, Inc., 2001
+\bibitem {Ahn2003} Ahn, S., Fessler, G.,\textit{Standard Errors of Mean, Variance, and Standard
+Deviation Estimators}, The University of Michigan, 2003
+\bibitem {Lehman1998} Lehmann, E.L., Casella, G.,\textit{Theory of Point Estimation}, 
+Springer-Verlag New York, Inc., Second Edition, 1998
+\bibitem {Forbes2010} Forbes, C.,Evans, M., Hastings, N., Peacock, B.,\textit{Statistical Distributions}, 
+John Wiley \& Sons, Inc., Hoboken, New Jersey., Fourth Edition, 2010
+\end{thebibliography}
+
+\begin{appendix}
+\input{Appendix_1}
+\input{Appendix_2}
+\input{Appendix_3}
+\input{Appendix_4}
+\end{appendix}
+
+\end{document}

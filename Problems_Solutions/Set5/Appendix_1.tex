@@ -1,0 +1,64 @@
+\section{Derivation of $\hat{\sigma}^2$ distribution}
+\label{sigma_hat_distiribution}
+
+To derive PDF of $\hat{\sigma^2}$ we will assume that the second term in the sum:
+
+\begin{equation}
+\sum_{i}^{n}\sum_{j \ne i}^{n}\mathbb{E}\left(\frac{(Y_i -\mu)(Y_j -\mu)}{n^2}\right) = \mathbi{O}\left(\frac{1}{n}\right)
+\end{equation}
+
+becomes Gaussian as $n$ increases and it's distribution converges to Normal for larger $n$. \\
+From Central Limit Theorem (CLT) we know that any sequence of i.i.d r.v's with $\mathbb{E}(X_i) = \mu$ and $Var(X_i) = \sigma$ than as N approaches infinity :
+
+\begin{equation}
+\sqrt{n}\left(\left(\frac{1}{n}\sum_{i=1}^n{n}X_i)\right) - \mu \right) \xrightarrow{d} \mathbi{N}(0,\sigma^2) \Longrightarrow
+\left(\left(\frac{1}{n}\sum_{i=1}^n{n}X_i)\right) - \mu \right)  \xrightarrow{d} \mathbi{N}(0,\frac{\sigma^2}{n})  
+\label{CLT}																								
+\end{equation}
+
+As $Y_i$ and $Y_j$ are i.i.d for $j \ne i$ therefore $\mathbb{E}((Y_i -\mu)(Y_j -\mu)) = 0$ and $Var((Y_i -\mu)(Y_j -\mu)) = \sigma^4 \Rightarrow $:
+
+\begin{equation}
+\begin{aligned}
+\sum_{i}^{n}\sum_{j \ne i}^{n}\frac{(Y_i -\mu)(Y_j -\mu)}{n^2} & = \frac{2}{n^2}\sum_{k=1}^{\frac{n(n-1)}{2}}Z_k 
+																															   = \frac{n(n-1)}{n^2}\frac{1}{\frac{n(n-1)}{2}}\sum_{k=1}^{\frac{n(n-1)}{2}}Z_k
+\end{aligned}																										
+\end{equation}
+where $Z_k = (Y_i -\mu)(Y_j -\mu)$ for $j \ne i$;
+
+The distribution of sum of covariance terms $Z_k$ should converge to Normal distribution: 
+
+\begin{equation}
+\begin{aligned}
+\frac{1}{\frac{n(n-1)}{2}}\sum_{k=1}^{\frac{n(n-1)}{2}}Z_k & \thicksim \mathbi{N}\left(0,\frac{2}{n(n-1)}\sigma^4\right) \\
+\frac{(n-1)}{n}\frac{1}{\frac{n(n-1)}{2}}\sum_{k=1}^{\frac{n(n-1)}{2}}Z_k & \thicksim \mathbi{N}\left(0,\frac{(n-1)^2}{n^2}\frac{2}{n(n-1)}\sigma^4\right) 
+																																					 \thicksim \mathbi{N}\left(0,\frac{2(n-1)}{n^3}\sigma^4\right) 
+\end{aligned}																										
+\end{equation}
+One can see that the $\mathbi{O}\left(\frac{1}{n}\right)$ is decreasing with n increasing and can be omitted.
+
+Let's now look at the distribution of $(Y_i -\mu)^2$. For simplicity let's look at case $\left(\frac{Y_i -\mu}{\sigma}\right)^2$ as $\left(\frac{Y_i -\mu}{\sigma}\right) = X \thicksim \mathbi{N}(0,1)$.
+
+The CDF of $X^2$, $\mathbi{F}(X^2)$ is:
+
+\begin{equation}
+\begin{aligned}
+\mathbi{F}(X^2) & = \mathbi{Pr}(X^2 \le t) = \mathbi{Pr}(-\sqrt{t} \le X \le \sqrt{t}) 																									
+								& = \mathbi{F}(\sqrt{t}) - \mathbi{F}(-\sqrt{t})					
+\end{aligned}
+\end{equation}
+
+And the PDF $\mathbi{f}(X^2):$
+
+\begin{equation}
+\begin{aligned}
+\mathbi{f}(X^2) & = \frac{d}{dt}\left(\mathbi{F}(\sqrt{t}) - \mathbi{F}(-\sqrt{t})\right) 
+								  = \frac{d}{dt}\left(\int_{-\infty}^{\sqrt{t}}\mathbi{f}(x)dx - \int_{-\infty}^{-\sqrt{t}}\mathbi{f}(x)dx\right)\\
+								& = \frac{1}{2\sqrt{t}}\mathbi{f}(\sqrt{t}) + \frac{1}{2\sqrt{t}}\mathbi{f}(-\sqrt{t})
+								  = \frac{1}{\sqrt{t}}\mathbi{f}(\sqrt{t})
+								  = \frac{1}{\sqrt{t}}\frac{1}{\sqrt{2\pi}}\exp\left(\frac{-t}{2}\right)
+									= \frac{1}{\sqrt{t}}\frac{1}{\sqrt{2}\Gamma\left(\frac{1}{2}\right)}\exp\left(\frac{-t}{2}\right)
+\end{aligned}
+\end{equation}
+
+This is distribution of $\chi^2$ distribution of order 1. This would suggest that $\frac{n\hat{\sigma}^2}{\sigma} \thicksim \chi_n^2$.

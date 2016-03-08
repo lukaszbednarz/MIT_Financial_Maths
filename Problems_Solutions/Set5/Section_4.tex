@@ -1,0 +1,106 @@
+\subsection{a}
+\label{subsection_4_a}
+Under the Gaussian model given $n$, $\mu$, $\sigma^2$ prove that the distribution of $\hat{\sigma}^2$ is:
+
+\begin{equation}
+\nonumber
+\hat{\sigma}^2 \thicksim \frac{\sigma^2}{n-1} \times \chi_{n-1}^2
+\end{equation}
+
+\begin{solution}
+We have proven in \ref{sigma_hat_distribution_2} that $\frac{n\hat{\sigma}^2}{\sigma^2} \thicksim \chi_{n-1}^2$ for ML estimator:
+
+\begin{equation}
+\nonumber
+\hat{\sigma}^2 \thicksim \frac{\sigma^2}{n} \times \chi_{n-1}^2
+\end{equation}
+
+The proof will be the same for unbiased estimator and we can write:
+
+\begin{equation}
+\nonumber
+\hat{\sigma}^2 \thicksim \frac{\sigma^2}{n - 1} \times \chi_{n-1}^2
+\end{equation}
+
+From above it follows that:
+
+\begin{equation}
+\hat{\sigma}^2 \thicksim \frac{\sigma^2}{n-1} \times \chi_{n-1}^2 \square
+\end{equation}
+
+
+\end{solution}
+
+\subsection{b}
+\begin{itemize}
+\item Using data for 2008, compute the two-sided 95 \% confidence interval for $\sigma^2$, based on daily log returns.
+\item Express the interval in terms of the annualized volatitiliy $(\sqrt{253}\sigma)$. Does the sample annual volatility for any other year fall in the 
+confidence interval for 2008? 
+\end{itemize}
+
+\begin{solution}
+For 2008 the daily variance is $6.677100e-04$. The quantiles for 95\% confidence and 252 d.f. are $q_{0.025} = 209.9227$ and $q_{0.975} = 297.8637$.
+Using formula:
+
+\begin{equation}
+Pr\left(\hat{\sigma}^2\frac{n-1}{q_{0.025}} \leq \sigma^2 \leq \hat{\sigma}^2\frac{n-1}{q_{0.975}} \right) = 0.975
+\end{equation}
+
+we can calculate intervals to be:
+
+\begin{equation}
+ 5.6490e-4 \leq \sigma^2 \leq 8.0155e-4 \square
+\end{equation}
+
+\end{solution}
+
+\begin{solution}
+The intervals in terms of annualized volatility are :
+
+\begin{equation}
+ 0.3780 \leq \sqrt{253}\sigma \leq 0.4503 \square
+\end{equation}
+
+None of the other year's volatilities  fall into confidence interval of 2008 volatility.
+\end{solution}
+
+\subsection{c}
+\label{subsection_4_c}
+
+\begin{itemize}
+\item Compute the test statistic $S=S_0$ for testing the daily return variance for 2008 is equal to the daily return variance for 2007.
+
+\item Given the value of the test statistic $S_0$, determine the $\alpha-\textit{level}$ at which the null hypothesis is on the boundary 
+of beeing just accepted/rejected.
+(This level is called the $P-\textit{value}$ of the test statistic. Reporting a test statistic's $P-\textit{value}$ provides evidence 
+concernig for/against the test null hypothesis which can be provided without having to specify $\alpha-\textit{level}$.
+
+\item Repeat the previous two questions for testing the equality of the return variance for 2008 so that for 2006. (Note: the degrees of 
+freedom for 2006 are the same as those for 2007 so the same $F$ distribution is applicable).
+\end{itemize}
+
+\begin{solution}
+The test statistic $S_0$ :
+
+\begin{equation}
+S=\frac{\hat{\sigma}_{2008}^2}{\hat{\sigma}_{2007}^2} = 6.5552
+\end{equation}
+
+We have to reject null hypothesis that $\frac{\hat{\sigma}_{2008}^2}{\hat{\sigma}_{2007}^2} = 1$.
+
+\end{solution}
+
+\begin{solution}
+For the test statistic the value above the $\alpha-\textit{value}$ is 0 down to machine precision of R-package.
+
+\end{solution}
+
+
+\begin{solution}
+Because
+\begin{equation}
+S=\frac{\hat{\sigma}_{2008}^2}{\hat{\sigma}_{2006}^2} = 16.7709
+\end{equation}
+
+We have to reject $H_0$ hypothesis and also the $\alpha-\textit{value}$ will be zero.
+\end{solution}

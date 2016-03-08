@@ -1,0 +1,64 @@
+\subsection{c}
+If limited to sampling $n+1$ price points for $\{X_t\}$, (including $X_0$ and $X_T$) prove that
+\begin{itemize}
+	\item For estimating $\sigma^2$, sampling, the ML estimators vary with the increment spacing, but the variance of these estimators are all equal, regardless of the increment spacing.
+	\item For estimating $\mu$, all ML estimators are the same and have the same variance, regardless of the increment spacing.
+\end{itemize}
+
+\begin{solution}
+Finding answer for $\sigma^2$ estimator.
+
+We can see from derivation of ML estimate of that for $n+1$ in \ref{subsection_2_b} 
+spaced over period T we have to decide first how to assign weight $g_0$ to r.v $Y_0$ and modify weights $h_i$ for subsequent
+samples. One scheme could be:
+
+\begin{equation}
+g_i = \left\{ 
+\begin{aligned}
+\frac{h_1}{2} \quad& for \quad i = 0 \\
+\frac{h_i + h_{i+1}}{2} \quad& for \quad i = 1 \ldots (n-1) \\
+\frac{h_n}{2} \quad& for \quad i = n 
+\end{aligned}\right.
+\end{equation}
+
+Using above we can re-write formula for $\hat{\sigma}^2$:
+
+\begin{equation}
+\begin{aligned}
+\hat{\sigma}^2  &= \frac{1}{n+1}\left[\frac{(Y_0-\hat{\mu} \frac{h_1}{2})^2}{\frac{h_1}{2}} 
+												+ \sum_{i=1}^{n-1}\frac{(Y_i-\hat{\mu}\frac{h_i + h_{i+1}}{2})^2}{\frac{h_i + h_{i+1}}{2}}
+												+ \frac{(Y_n-\hat{\mu} \frac{h_n}{2})^2}{\frac{h_1}{2}}\right] \\
+								&= \frac{1}{n+1}\sum_{i=0}^{n}\frac{(Y_i-\hat{\mu} g_i)^2}{g_i}			
+\end{aligned}
+\end{equation}
+
+where : $\sum_{i=0}^ng_i = T$.
+
+From derivation in \ref{sigma_hat_distribution_3}\ref{eq:ap_sigma_square_expansion_2} we can see that: 
+
+\begin{equation}
+\begin{aligned}
+(n+1)\hat{\sigma}^2 & = \sum_{i=0}^n\frac{(Y_i - \mu g_i)^2}{g_i} -T(\hat{\mu} - \mu)^2 \\
+										& = \sum_{i=0}^n\frac{Y_i^2}{g_i} -2\mu\sum_{i=0}^nY_i + T\mu^2 -T(\hat{\mu} - \mu)^2 \\
+										& = \sum_{i=0}^n\frac{Y_i^2}{g_i} -T\hat{\mu}^2
+\end{aligned}
+\end{equation}
+
+Let's chose different set of sampling points $k_1 \ldots k_{n-1}$. We can see that the estimate formula will be different for each choice of intervals:
+
+\begin{equation}
+\hat{\sigma}_g^2 = \sum_{i=0}^{n}\frac{(Y_i-\mu g_i)^2}{g_i} \neq \hat{\sigma}_k^2 =\sum_{i=0}^{n}\frac{(Z_i-\mu k_i)^2}{k_i}			
+\end{equation}
+
+However both for the different choice of sampling intervals 
+$\frac{(n+1)\hat{\sigma}_g^2}{\sigma^2} \thicksim \frac{(n+1)\hat{\sigma}_k^2}{\sigma^2} \thicksim \chi^2_{n}$, 
+and variance of both estimators will be the same. $\square$
+
+\end{solution}
+
+\begin{solution}
+Finding answer for $\mu$ estimator.
+
+For $\hat{\mu} = $ estimator the ML formula for estimator doesn't depend on choice of sampling intervals. 
+For any choice of intervals the ML estimate will result in the same formula, and having the same distribution. $\square$
+\end{solution}

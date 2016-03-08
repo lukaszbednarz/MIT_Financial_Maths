@@ -1,0 +1,77 @@
+\subsection{a}
+\label{subsection_3_a}
+Prove that: $\mathbi{E}[\epsilon^2_t] = \alpha_0/(1-\alpha_1)$.
+Where $Z_t$ is i.i.d. and $\mathbi{E}[Z_t] = 0$ and $\mathbi{E}[Z_t^2] = 1$.
+
+\begin{solution}
+
+Using $\mathbi{E}[\epsilon^2_t] = Z_t\sigma_t$ and $\sigma_t^2 = \alpha_0 + \alpha_1 \epsilon_{t-1}^2$:
+
+\begin{equation}
+\begin{aligned}
+\mathbi{E}[\epsilon^2_t] & = \mathbi{E}\left[Z_t^2\sigma_t^2\right] \\
+												 & = \mathbi{E}\left[Z_t^2(\alpha_0 + \alpha_1 \epsilon_{t-1}^2)\right] \\
+												 & = \mathbi{E}\left[Z_t^2\right] \mathbi{E}\left[\alpha_0 + \alpha_1 \epsilon_{t-1}^2\right] \\
+												 & = 1 \cdot \left\{\alpha_0 + \alpha_1\mathbi{E}\left[\alpha_1 \epsilon_{t-1}^2\right] \right\} \\
+												 & = \alpha_0 + \alpha_1\mathbi{E}\left[\epsilon_{t}^2\right] \\
+										     & = \frac{\alpha_0}{1 - \alpha_1} \square
+\end{aligned}
+\end{equation}
+\end{solution}
+
+\subsection{b}
+\label{subsection_3_b}
+Prove that: $\mathbi{E}[\epsilon^3_t] = 0$.
+Suppose that $\mathbi{E}[Z_t^3] = 0$.
+
+\begin{solution}
+
+\begin{equation}
+\begin{aligned}
+\mathbi{E}[\epsilon^3_t] & = \mathbi{E}\left[Z_t^3\sigma_t^3\right] \\
+												 & = \mathbi{E}\left[Z_t^3\right] \mathbi{E}\left[\sigma_t^3\right] \\
+												 & = 0 \cdot \mathbi{E}\left[\sigma_t^3\right] \\
+												 & = 0 \square.
+\end{aligned}
+\end{equation}
+
+because $\mathbi{E}\left[Z_t^3\right]=0$.
+\end{solution}
+
+
+\subsection{c}
+\label{subsection_3_c}
+Prove that: $\mathbi{E}[\epsilon^4_t] = \frac{\kappa\alpha_0^2(1+\alpha_1)}{(1-\alpha_1)(1-\kappa\alpha_1)} $.
+Suppose that $\mathbi{E}[Z_t^4] = \kappa$.
+
+\begin{solution}
+
+\begin{equation}
+\begin{aligned}
+\mathbi{E}[\epsilon^4_t] & = \mathbi{E}\left[Z_t^4\sigma_t^4\right] \\
+												 & = \mathbi{E}\left[Z_t^4(\alpha_0 + \alpha_1 \epsilon_{t-1}^2)^2\right] \\
+												 & = \mathbi{E}\left[Z_t^4\right] \mathbi{E}\left[\left(\alpha_0 + \alpha_1 \epsilon_{t-1}^2)^2\right)\right] \\
+												 & = \kappa \cdot \left\{ \mathbi{E}\left[\left(\alpha_0^2 
+																																	      + 2\alpha_0\alpha_1\epsilon_{t-1}^2 
+																																	      + \alpha_1^2\epsilon_{t-1}^4 \right)\right] \right\} \\
+												 & = \kappa \cdot \left\{ \alpha_0^2 
+																																	      + 2\alpha_0\alpha_1\mathbi{E}\left[\epsilon_{t-1}^2 \right] 
+																																	      + \alpha_1^2\mathbi{E}\left[\epsilon_{t-1}^4 \right] \right\} \\
+										     & = \kappa \cdot \left\{ \alpha_0^2 
+																																	      + 2\alpha_0\alpha_1\frac{\alpha_0}{1 - \alpha_1} 
+																																	      + \alpha_1^2\mathbi{E}\left[\epsilon_{t-1}^4 \right] \right\} \\
+											   & = \kappa \cdot \left\{ \frac{\alpha_0^2(1 - \alpha_1)}{1 - \alpha_1} 
+																																	      + \frac{2\alpha_0^2\alpha_1}{1 - \alpha_1} 
+																																	      + \alpha_1^2\mathbi{E}\left[\epsilon_{t-1}^4 \right] \right\} \\
+												& = \kappa \cdot \left\{ \frac{\alpha_0^2 - \alpha_0^2\alpha_1 + 2\alpha_0^2\alpha_1}{1 - \alpha_1} 
+																																	      + \alpha_1^2\mathbi{E}\left[\epsilon_{t-1}^4 \right] \right\} \\
+												& = \kappa\frac{\alpha_0^2 - \alpha_0^2\alpha_1 + 2\alpha_0^2\alpha_1}{1 - \alpha_1} 
+																																	      + \kappa\alpha_1^2\mathbi{E}\left[\epsilon_{t-1}^4 \right] \\
+												& = \kappa\frac{\alpha_0^2 - \alpha_0^2\alpha_1 + 2\alpha_0^2\alpha_1}{1 - \alpha_1} 
+																																	      + \kappa\alpha_1^2\mathbi{E}\left[\epsilon_{t}^4 \right] \\
+												& = \frac{\kappa\alpha_0^2(1 + \alpha_1)}{(1 - \alpha_1)(1 - \kappa\alpha_1)} \square.																																	     
+\end{aligned}
+\end{equation}
+
+\end{solution}
+
