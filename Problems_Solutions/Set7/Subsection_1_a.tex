@@ -1,0 +1,38 @@
+\subsection{a} 
+\label{section_1_a}
+\par
+Compute the \textbf{eigenvalues} $\Sigma: \lambda_1 \geq \lambda_2 \geq 0$.
+
+\begin{solution}\hfill\break
+Calculating eigenvalues:
+
+\begin{equation}
+\label{eq:1.1.a:eigenvalues}
+\begin{aligned}
+(\sigma_{1}^{2}  - \lambda)(  \sigma_{2}^{2}  - \lambda) -   \rho^2\sigma_{1}^{2} \sigma_{2}^{2} & = 0 \\
+\lambda^2 -\lambda(\sigma_{1}^{2}  + \sigma_{2}^{2} ) + (1- \rho^2)\sigma_{1}^{2} \sigma_{2}^{2} & = 0
+ \end{aligned}
+\end{equation}
+\hfill\break
+Eigenvalues quadratic equation solution :
+
+\begin{equation}
+\begin{aligned}
+\Delta & = & (\sigma_{1}^{2}  + \sigma_{2}^{2} )^2 - 4 (1- \rho^2)\sigma_{1}^{2} \sigma_{2}^{2}  \\
+          & = & \sigma_{1}^{4}  + \sigma_{2}^{4}  + 2\sigma_{1}^{2} \sigma_{2}^{2}  - (4 - 4 \rho^2)\sigma_{1}^{2}\sigma_{2}^{2} \\
+          & = & \sigma_{1}^{4}  + \sigma_{2}^{4}   - 2(1 - 2 \rho^2)\sigma_{1}^{2}\sigma_{2}^{2} \\
+ \end{aligned}
+\end{equation}
+
+\hfill\break
+Computing quadratic equation values :
+
+\begin{equation}
+\begin{aligned}
+\lambda_1 & = & \frac{(\sigma_{1}^{2}  + \sigma_{2}^{2}) + \sqrt{\Delta} }{2} \\
+\lambda_2 & = & \frac{(\sigma_{1}^{2}  + \sigma_{2}^{2}) -\sqrt{\Delta} }{2} 
+ \end{aligned}
+\end{equation}
+
+
+\end{solution}

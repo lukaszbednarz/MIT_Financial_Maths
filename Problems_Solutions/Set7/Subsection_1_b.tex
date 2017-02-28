@@ -1,0 +1,66 @@
+\subsection{b} 
+\label{section_1_b}
+Compute  the \textbf{eigenvectors} $\gamma_1$, $\gamma_2$:
+
+\begin{equation}
+\nonumber
+\begin{aligned}
+\Sigma\gamma_i & = \lambda_i, \quad i = 1,2 &\\
+\gamma_i^{\prime}\gamma_i & = 1, \quad i = 1,2 & \\
+\gamma_1^{\prime}\gamma_2 & = 0 &
+\end{aligned}
+\end{equation}
+
+\begin{solution}
+
+\begin{equation}
+\label{eq:1.1.b:eigenvectors}
+\begin{aligned}
+\left[\begin{array}{cc} \sigma_{1}^2  &  \rho\sigma_{1}\sigma_{2} \\  
+                                   \rho\sigma_{1}\sigma_{2}   & \sigma_{2}^2  \end{array}\right] 
+\left[\begin{array}{c} \gamma_{i,1} \\ \gamma_{i,2} \end{array}\right] &= \left[\begin{array}{cc} \lambda_i & 0 \\  0 & \lambda_i \end{array}\right] \left[\begin{array}{c} \gamma_{i,1} \\ \gamma_{i,2} \end{array}\right]\\
+\left[\begin{array}{cc} \sigma_{1}^2  -\lambda_i &  \rho\sigma_{1}\sigma_{2} \\  
+                                   \rho\sigma_{1}\sigma_{2}   & \sigma_{2}^2   -\lambda_i \end{array}\right] 
+\left[\begin{array}{c} \gamma_{i,1} \\ \gamma_{i,2} \end{array}\right] & = \left[0\right]
+\end{aligned}
+\end{equation}
+
+
+\hfill\break
+Computing $\gamma_{i,1} =- \frac{\rho\sigma_{1}\sigma_{2} \gamma_{i,2}}{ \sigma_{1}^2  -\lambda_i }$:
+Substituting to second row:
+
+\begin{equation}
+\begin{aligned}
+-\rho\sigma_{1}\sigma_{2} \frac{\rho\sigma_{1}\sigma_{2} \gamma_{i,2}}{ \sigma_{1}^2  -\lambda_i } 
+	+( \sigma_{2}^2   -\lambda_i)\gamma_{i,2} & = 0 \\
+-\rho\sigma_{1}\sigma_{2} \rho\sigma_{1}\sigma_{2} \gamma_{i,2}
+	+ ( \sigma_{1}^2   -\lambda_i) ( \sigma_{2}^2   -\lambda_i)\gamma_{i,2} & = 0	\\
+-\rho^2\sigma_{1}^2\sigma_{2}^2 \gamma_{i,2}
+	+ (- \sigma_{1}^2 \lambda_i - \sigma_{2}^2 \lambda_i + \sigma_{1}^2 \sigma_{2}^2  +\lambda_i^2)\gamma_{i,2} & = 0  \\
+(\rho^2\sigma_{1}^2\sigma_{2}^2 
+	- \sigma_{1}^2 \lambda_i - \sigma_{2}^2 \lambda_i + \sigma_{1}^2 \sigma_{2}^2  +\lambda_i^2)\gamma_{i,2} & = 0 \\
+\left[\lambda_i^2 -(\sigma_{1}^2 + \sigma_{2}^2 )\lambda_i  -\rho^2\sigma_{1}^2\sigma_{2}^2 
+	+ \sigma_{1}^2 \sigma_{2}^2  \right]\gamma_{i,2} & = 0 \\
+\left[\lambda_i^2 -(\sigma_{1}^2 + \sigma_{2}^2 )\lambda_i  + (1-\rho^2)\sigma_{1}^2 \sigma_{2}^2 \right])\gamma_{i,2} & = 0 \\
+\end{aligned}
+\end{equation}
+\hfill\break
+From \autoref{eq:1.1.a:eigenvalues} we know that: $\lambda_i^2 -(\sigma_{1}^2 + \sigma_{2}^2 )\lambda_i  + (1-\rho^2)\sigma_{1}^2 \sigma_{2}^2  = 0$ therefore $\gamma_{i,2} = c, c \in \mathbb{C}$. Setting $\gamma_{i,2} = \rho\sigma_{1}\sigma_{2} $  one can compute $\gamma_{i,1} $. 
+
+Using second row from \autoref{eq:1.1.b:eigenvectors} we get : $\gamma_{i,1} =\lambda_i - \sigma_{2}^2 $. 
+
+Finally eigenvectors will be:
+
+\begin{equation}
+\begin{aligned}
+\left[\begin{array}{c} \lambda_1 - \sigma_{2}^2 \\ \rho\sigma_{1}\sigma_{2} \end{array}\right] ,
+\left[\begin{array}{c} \lambda_2 - \sigma_{2}^2 \\ \rho\sigma_{1}\sigma_{2} \end{array}\right] 
+\end{aligned}
+\end{equation}
+
+\hfill\break
+
+
+           
+\end{solution}

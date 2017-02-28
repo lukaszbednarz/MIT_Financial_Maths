@@ -1,0 +1,115 @@
+\subsection{d} 
+\label{section_1_d}
+Derive formula for computing $\Gamma_h = Cov[\mathbi{X}_t,\mathbi{X}_{t-h}]$.
+
+\begin{solution}
+
+\begin{equation}
+\begin{aligned}
+Cov(\mathbi{X}_t,\mathbi{X}_{t-h}) & = E\left\{[\mathbi{X}_t-E(\mathbi{X}_t)][\mathbi{X}_{t-1}-E(\mathbi{X}_{t-h})]^T\right\} \\
+									                 & =\left[\begin{array}{cc} Cov(X_{1,t},X_{1,t-h}) & Cov(X_{1,t},X_{2,t-h}) \\ Cov(X_{2,t},X_{1,t-h}) & Cov(X_{2,t},X_{2,t-h}) \end{array}\right] \\
+																	 & =\left[\begin{array}{cc} \Gamma_{1,1}(h) & \Gamma_{1,2}(h)  \\ \Gamma_{2.1}(h)  & \Gamma_{2,2}(h)  \end{array}\right] \\
+\end{aligned}
+\end{equation}
+
+\begin{equation}
+\begin{aligned}
+Cov(X_{1,t},X_{1,t-h}) 	& = E\left\{[X_{1,t} - E(X_{1,t})][X_{1,t-h} - E(X_{1,t-h})]\right\} \\
+												& = E(X_{1,t}X_{1,t-h}) - E(X_{1,t})E(X_{1,t-h}) \\
+												& = E(X'_{1,t}X'_{1,t-h})\\
+												& = E\left(0.8 \cdot X'_{1,t-1}X'_{1,t-h} +  X'_{1,t-h}\epsilon_{1,t} \right)\\
+												& = 0.8 \cdot E(X'_{1,t-1}X'_{1,t-h}) \\
+												& = 0.8 \cdot Cov(X'_{1,t-1},X'_{1,t-h}) \\
+												& = 0.8 \cdot Cov(X'_{1,t},X'_{1,t-(h-1)}) \\
+												& = 0.8 \cdot Cov(X_{1,t},X_{1,t-(h-1)}) \\
+												& = 0.8 \cdot \Gamma_{1,1}(h-1)) \\
+												& = 0.8^{h-1} \cdot \Gamma_{1,1}(0)) \\
+\end{aligned}
+\end{equation}
+
+\begin{equation}
+\begin{aligned}
+Cov(X_{1,t},X_{2,t-h}) 	& = E\left\{[X_{1,t} - E(X_{1,t})][X_{2,t-h} - E(X_{2,t-h})]\right\} \\
+												& = E(X_{1,t}X_{2,t-h}) - E(X_{1,t})E(X_{2,t-h}) \\
+												& = E(X'_{1,t}X'_{2,t-h})\\
+												& = E\left(0.8 \cdot X'_{1,t-1}X'_{2,t-h} +  X'_{2,t-h}\epsilon_{1,t} \right)\\
+												& = 0.8 \cdot E(X'_{1,t-1}X'_{2,t-h}) \\
+												& = 0.8 \cdot E[X'_{1,t-1}(0.6 \cdot X'_{1,t-(h+1)} + 0.4 \cdot X'_{2,t-(h+1)})] \\
+												& = 0.48 \cdot E(X'_{1,t-1}X'_{1,t-(h+1)}) + 0.32 \cdot E(X'_{1,t-1}X'_{2,t-(h+1)}) \\
+												& = 0.48 \cdot Cov(X'_{1,t},X'_{1,t-h}) + 0.32 \cdot Cov(X'_{1,t},X'_{2,t-h}) \\
+												& = 0.48 \cdot \Gamma_{1,1}(h) + 0.32 \cdot Cov(X'_{1,t},X'_{2,t-h}) \\
+												& = \frac{0.48}{0.68} \cdot \Gamma_{1,1}(h) \\
+												& = \frac{0.48 \cdot 0.8}{0.68} \cdot \Gamma_{1,1}(h-1)) \\
+												& = \frac{0.48 }{0.68}\cdot 0.8^{h-1} \cdot \Gamma_{1,1}(0)) \\
+\end{aligned}
+\end{equation}
+
+\begin{equation}
+\begin{aligned}
+Cov(X_{2,t},X_{1,t-h}) 	& = E\left\{[X_{2,t} - E(X_{2,t})][X_{1,t-h} - E(X_{1,t-h})]\right\} \\
+												& = E(X_{2,t}X_{1,t-h}) - E(X_{2,t})E(X_{1,t-h}) \\
+												& = E(X'_{2,t}X'_{1,t-h})\\
+												& = E\left(0.6 \cdot X'_{1,t-1}X'_{1,t-h} + 0.4 \cdot X'_{2,t-1}X'_{1,t-h} + X'_{1,t-h}\epsilon_{2,t} \right)\\
+												& = 0.8 \cdot E(X'_{1,t-1}X'_{1,t-h}) + 0.4 \cdot E(X'_{2,t-1}X'_{1,t-h}) \\
+												& = 0.8 \cdot Cov(X'_{1,t}X'_{1,t-(h-1)}) + 0.4 \cdot Cov(X'_{2,t}X'_{1,t-(h-1)}) \\
+												& = 0.8 \cdot \Gamma_{1,1}(h-1) + 0.4 \cdot \Gamma_{2,1}(h-1) \\
+												& = 0.8^{h-1} \cdot \Gamma_{1,1}(0) + 0.4 \cdot \Gamma_{2,1}(h-1) \\
+\end{aligned}
+\end{equation}
+
+\begin{equation}
+\begin{aligned}
+Cov(X_{2,t},X_{2,t-h}) 	& = E\left\{[X_{2,t} - E(X_{2,t})][X_{2,t-h} - E(X_{2,t-h})]\right\} \\
+												& = E(X_{2,t}X_{2,t-h}) - E(X_{2,t})E(X_{2,t-h}) \\
+												& = E(X'_{2,t}X'_{2,t-h})\\
+												& = E\left(0.6 \cdot X'_{1,t-1}X'_{2,t-h} + 0.4 \cdot X'_{2,t-1}X'_{2,t-h} + X'_{2,t-h}\epsilon_{2,t} \right)\\
+												& = 0.8 \cdot E(X'_{1,t-1}X'_{2,t-h}) + 0.4 \cdot E(X'_{2,t-1}X'_{2,t-h}) \\
+												& = 0.8 \cdot Cov(X'_{1,t}X'_{2,t-(h-1)}) + 0.4 \cdot Cov(X'_{2,t}X'_{2,t-(h-1)}) \\
+												& = 0.8 \cdot \Gamma_{1,2}(h-1) + 0.4 \cdot \Gamma_{2,2}(h-1) \\
+												& = 0.8 \cdot\frac{0.48 \cdot 0.8}{0.68} \cdot \Gamma_{1,1}(h-2) + 0.4 \cdot \Gamma_{2,2}(h-1)\\
+												& = \frac{0.48 \cdot 0.8}{0.68} \cdot \Gamma_{1,1}(h-1) + 0.4 \cdot \Gamma_{2,2}(h-1)\\
+\end{aligned}
+\end{equation}
+
+We can rewrite formula for $\Gamma_h = Cov[\mathbi{X}_t,\mathbi{X}_{t-h}]$ :
+
+\begin{equation}
+\begin{aligned}
+vec(\Gamma_h)  & =\left[\begin{array}{c} \Gamma_{1,1}(h) 							  \\ \Gamma_{1,2}(h)  \\ \Gamma_{2,1}(h) \\ \Gamma_{2,2}(h)  \end{array}\right] 
+							   = A
+									\cdot 
+									\left[\begin{array}{c} \Gamma_{1,1}(h-1) 							\\ \Gamma_{1,2}(h-1)\\ \Gamma_{2,1}(h-1)\\ \Gamma_{2,2}(h-1)\end{array}\right]
+\end{aligned}
+\end{equation}
+
+where:
+\begin{equation}
+              A = \left[\begin{array}{llll} 0.8             						& 0                 & 0                 & 0                \\
+									                          0.8 \cdot \frac{0.48}{0.68} & 0                 & 0                 & 0                \\
+																						0.8 											  & 0                 & 0.4               & 0                \\ 
+																						0.8 \cdot \frac{0.48}{0.68} & 0                 & 0                 & 0.4              \end{array}\right]
+\end{equation}
+
+To find generic formula we have to do eigenvalues decomposition of matrix $A$:
+
+\begin{equation}
+              A = VDV'.
+\end{equation}
+
+Because $A$ is triangular matrix $D$ will be just diagonal of $A$:
+
+\begin{equation}
+              D = diag(A) 
+							  = \left[\begin{array}{llll} 0.8             						& 0                 & 0                 & 0                \\
+									                          0                           & 0                 & 0                 & 0                \\
+																						0   											  & 0                 & 0.4               & 0                \\ 
+																						0                           & 0                 & 0                 & 0.4              \end{array}\right]
+\end{equation}
+
+The generic formula would then become:
+
+\begin{equation}
+              vec(\Gamma_h)= VD^hV'vec(\Gamma_{h-1}).
+\end{equation}
+
+\end{solution}

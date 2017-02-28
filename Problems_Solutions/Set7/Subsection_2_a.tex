@@ -1,0 +1,39 @@
+\subsection{a} 
+\label{section_2_a}
+Solve for coefficients $\theta_i$ in the infinite order moving average process for $\{x_t\}$:
+
+\begin{equation}
+\nonumber
+x_t = \epsilon_t + \sum_{i=1}^{\infty} \theta_i\epsilon_{t-i}
+\end{equation}
+
+
+\begin{solution}
+From formula for geometric series sum:
+
+\begin{equation}
+\nonumber
+\sum_{i=0}^{\infty}ar^i = \frac{a}{1-r}
+\end{equation}
+
+We can find coefficients for processes $w_t$ and $v_t$:
+
+\begin{equation}
+\begin{aligned}
+w_t & = 5(1 - 0.5L)^{-1}\epsilon_t = 5\sum_{i=0}^{\infty} (0.5L)^i \epsilon_t \\
+v_t & = 4(1 - 0.4L)^{-1}\epsilon_t = 4\sum_{i=0}^{\infty} (0.4L)^i \epsilon_t
+\end{aligned}
+\end{equation}
+
+The coefficients $\theta_i$ can be derived from sum of the two infinite series:
+
+\begin{equation}
+\begin{aligned}
+x_t & = 5\epsilon_t + 5\sum_{i=1}^{\infty} (0.5L)^i \epsilon_t - 4\epsilon_t - 4\sum_{i=1}^{\infty} (0.4L)^i \epsilon_t\\
+    & = \epsilon_t + \sum_{i=1}^{\infty}  \left[5(0.5)^i - 4(0.4)^i\right] L^i \epsilon_t
+\end{aligned}
+\end{equation}
+
+Therefore $\theta_i = 5(0.5)^i - 4(0.4)^i$.$\square$
+
+\end{solution}

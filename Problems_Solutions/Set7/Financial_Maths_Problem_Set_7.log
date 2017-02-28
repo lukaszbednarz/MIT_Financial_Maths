@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.9.4)  31 JAN 2017 12:41
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.9.4)  28 FEB 2017 06:16
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**Financial_Maths_Problem_Set_6.tex
-(./Financial_Maths_Problem_Set_6.tex
+**Financial_Maths_Problem_Set_7.tex
+(./Financial_Maths_Problem_Set_7.tex
 LaTeX2e <2016/03/31>
 Babel <3.9r> and hyphenation patterns for 83 language(s) loaded.
 (/usr/local/texlive/2016/texmf-dist/tex/latex/amscls/amsart.cls
@@ -230,8 +230,8 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 \c@solution=\count109
 \c@collary=\count110
 
-(./Financial_Maths_Problem_Set_6.aux)
-\openout1 = `Financial_Maths_Problem_Set_6.aux'.
+(./Financial_Maths_Problem_Set_7.aux)
+\openout1 = `Financial_Maths_Problem_Set_7.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 19.
 LaTeX Font Info:    ... okay on input line 19.
@@ -272,122 +272,70 @@ LaTeX Info: Redefining \ref on input line 19.
 LaTeX Info: Redefining \pageref on input line 19.
 LaTeX Info: Redefining \nameref on input line 19.
 
-(./Financial_Maths_Problem_Set_6.out) (./Financial_Maths_Problem_Set_6.out)
+(./Financial_Maths_Problem_Set_7.out) (./Financial_Maths_Problem_Set_7.out)
 \@outlinefile=\write3
-\openout3 = `Financial_Maths_Problem_Set_6.out'.
+\openout3 = `Financial_Maths_Problem_Set_7.out'.
 
 
-(./Section_1.tex (./Subsection_1_a.tex) (./Subsection_1_b.tex [1{/usr/local/tex
-live/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}pdfTeX warning (ext4): d
-estination with the same identifier (name{equation.1.1}) has been already used,
- duplicate ignored
+(./Section_1.tex (./Subsection_1_a.tex [1{/usr/local/texlive/2016/texmf-var/fon
+ts/map/pdftex/updmap/pdftex.map}pdfTeX warning (ext4): destination with the sam
+e identifier (name{equation.1.1}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.13 \end{equation}
+l.35 \end{equation}
                    pdfTeX warning (ext4): destination with the same identifier 
 (name{equation.1.1}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.13 \end{equation}
-                   ]
-Underfull \vbox (badness 1087) has occurred while \output is active []
-
- [2]
-[3] [4]) (./Subsection_1_c.tex
-Overfull \hbox (43.23235pt too wide) detected at line 27
- $[] []$  
- []
-
-
-Underfull \vbox (badness 1024) has occurred while \output is active []
-
- [5]
-Overfull \hbox (22.19176pt too wide) detected at line 79
- $[] []$  
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [6]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [7]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [8])
-(./Subsection_1_d.tex
-Underfull \vbox (badness 1817) has occurred while \output is active []
-
- [9]
-[10])) (./Section_2.tex (./Subsection_2_a.tex [11]pdfTeX warning (ext4): destin
-ation with the same identifier (name{equation.2.27}) has been already used, dup
-licate ignored
-<to be read again> 
-                   \relax 
-l.5 \begin{equation}
-                    pdfTeX warning (ext4): destination with the same identifier
- (name{equation.2.27}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.14 \begin{equation}
-                     pdfTeX warning (ext4): destination with the same identifie
-r (name{equation.2.27}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.21 \begin{equation}
-                     ) (./Subsection_2_b.tex) (./Subsection_2_c.tex)
-(./Subsection_2_d.tex [12]pdfTeX warning (ext4): destination with the same iden
-tifier (name{equation.2.30}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.10 \begin{equation}
-                     ))
+l.35 \end{equation}
+                   ]) (./Subsection_1_b.tex))
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 59.
- [13pdfTeX warning (ext4): destination with the same identifier (name{equation.
-2.32}) has been already used, duplicate ignored
+ [2pdfTeX warning (ext4): destination with the same identifier (name{equation.1
+.4}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.59 \end{document}
                    ]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 59.
- (./Financial_Maths_Problem_Set_6.aux)
+ (./Financial_Maths_Problem_Set_7.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 59.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 59.
-Package rerunfilecheck Info: File `Financial_Maths_Problem_Set_6.out' has not c
+Package rerunfilecheck Info: File `Financial_Maths_Problem_Set_7.out' has not c
 hanged.
-(rerunfilecheck)             Checksum: EF88B19C9FE32EAA012123EF8DED992A;517.
+(rerunfilecheck)             Checksum: 444792497EF43CD9B77F8C827D2400BC;186.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 59.
  ) 
 Here is how much of TeX's memory you used:
- 5687 strings out of 493014
- 80268 string characters out of 6133352
- 185803 words of memory out of 5000000
- 8959 multiletter control sequences out of 15000+600000
- 12441 words of font info for 46 fonts, out of 8000000 for 9000
+ 5604 strings out of 493014
+ 79208 string characters out of 6133352
+ 167803 words of memory out of 5000000
+ 8947 multiletter control sequences out of 15000+600000
+ 11743 words of font info for 44 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
- 34i,15n,31p,287b,445s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 34i,15n,31p,381b,432s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pf
 b></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pf
 b></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
 ></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb>
-</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></
-usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></us
-r/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/l
-ocal/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/loca
-l/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local
-/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/t
-exlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/te
-xlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/local/texl
-ive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on Financial_Maths_Problem_Set_6.pdf (13 pages, 189643 bytes).
+</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></
+usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></us
+r/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/
+local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/loc
+al/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/
+texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/tex
+live/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texl
+ive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texliv
+e/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive
+/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/local/texlive/2
+016/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on Financial_Maths_Problem_Set_7.pdf (2 pages, 161132 bytes).
 PDF statistics:
- 216 PDF objects out of 1000 (max. 8388607)
- 185 compressed objects within 2 object streams
- 64 named destinations out of 1000 (max. 500000)
- 81 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 112 PDF objects out of 1000 (max. 8388607)
+ 91 compressed objects within 1 object stream
+ 15 named destinations out of 1000 (max. 500000)
+ 33 words of extra memory for PDF output out of 10000 (max. 10000000)
 

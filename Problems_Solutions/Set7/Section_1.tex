@@ -1,0 +1,29 @@
+Consider a bivariate random variable:
+
+
+\begin{equation}
+\nonumber
+\mathbi{X}_t=\left[\begin{array}{c} X_{1} \\ X_{2}, \end{array}\right]
+\end{equation}
+
+with mean and covariance:
+
+$(\epsilon_{1,t}, \epsilon_{2,t})^T$ are $i.i.d.N(0_2,\Sigma)$, and 
+
+\begin{equation}
+\nonumber
+E[X] = \left[\begin{array}{c} \alpha_{1} \\  \alpha_{2} \end{array}\right], and \hfill
+Cov[X] = \Sigma = \left[\begin{array}{cc} \Sigma_{1,1}  &  \Sigma_{1,2} \\  
+                                                                 \Sigma_{2,1}  &  \Sigma_{2,2} \end{array}\right]
+                           = \left[\begin{array}{cc} \sigma_{1}^2  &  \rho\sigma_{1}\sigma_{2} \\  
+                                                                 \rho\sigma_{1}\sigma_{2}   & \sigma_{2}^2  \end{array}\right],                                      
+\end{equation}
+where $\sigma_1 = \sqrt{\Sigma_{1,1}}$, $\sigma_2 = \sqrt{\Sigma_{2,2}}$ and $\rho$ is the correlation between $\mathbi{X}_1 and \mathbi{X}_2$.
+
+Conduct the Principal Components Analysis (PCA) of $\mathbi{X}$:
+
+% subsections
+\input{Subsection_1_a}
+\input{Subsection_1_b}
+%\input{Subsection_1_c}
+%\input{Subsection_1_d}

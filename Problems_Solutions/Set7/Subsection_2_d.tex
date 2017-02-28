@@ -1,0 +1,63 @@
+\subsection{d} 
+\label{section_2_d}
+Prove that any stationary $AR(2)$ process can be expressed as the difference of two (possibly infinite order) 
+moving average processes on the same innovation process $\{\epsilon_t\}$.
+
+\begin{solution}
+
+Any $AR(2)$ process $\{x_t\}$ can be represented as:
+
+\begin{equation}
+x_t = \phi_1 x_{t-1} + \phi_2 x_{t-2} + \epsilon_t
+\end{equation}
+
+The process can be rewritten using lag operator $L$: 
+
+\begin{equation}
+\begin{aligned}
+x_t - \phi_1 x_{t-1} - \phi_2 x_{t-2}  & = \epsilon_t \\
+       (1 - \phi_1 L - \phi_2 L^2)x_t  & = \epsilon_t \\
+			(1 - \lambda_1L)(1-\lambda_2L)x_t  & = \epsilon_t
+\end{aligned}
+\end{equation}
+
+where:
+\begin{equation}
+\nonumber
+\begin{aligned}
+\lambda_i & = \frac{\phi_1 + \sqrt{\phi_1^2 + 4\phi_2}}{2\phi_2} \\
+\lambda_2 & = \frac{\phi_1 - \sqrt{\phi_1^2 + 4\phi_2}}{2\phi_2} 
+\end{aligned}
+\end{equation}
+
+are roots of characteristic equation $1 - \phi_1 z - \phi_2 z^2 = 0$.
+
+Process $\{x_t\}$ will be invertible if $|\lambda_1| < 1$ and $|\lambda_2| < 1$ and can be written as:
+
+\begin{equation}
+\begin{aligned}
+x_t  & = (1 - \lambda_1L)^{-1}(1-\lambda_2L)^{-1}\epsilon_t \\
+     & = \left[\frac{A}{1 - \lambda_1L} + \frac{B}{1 - \lambda_2L}\right]\epsilon_t \\
+		 & = \left[\frac{\lambda_1}{\lambda_1 - \lambda_2}\frac{1}{1 - \lambda_1L} 
+		   - \frac{\lambda_2}{\lambda_1 - \lambda_2}\frac{1}{1 - \lambda_2L}\right]\epsilon_t \\
+		 & = \frac{\lambda_1}{\lambda_1 - \lambda_2}\frac{1}{1 - \lambda_1L}\epsilon_t 
+		   - \frac{\lambda_2}{\lambda_1 - \lambda_2}\frac{1}{1 - \lambda_2L}\epsilon_t \\
+		 & = \frac{\lambda_1}{\lambda_1 - \lambda_2}\sum_{i=0}^{\infty} (\lambda_1L)^i \epsilon_t 
+		   - \frac{\lambda_2}{\lambda_1 - \lambda_2}\sum_{i=0}^{\infty} (\lambda_2L)^i \epsilon_t \\
+		 & = \frac{\lambda_1}{\lambda_1 - \lambda_2}\sum_{i=0}^{\infty} \lambda_1^i \epsilon_{t-i} 
+		   - \frac{\lambda_2}{\lambda_1 - \lambda_2}\sum_{i=0}^{\infty} \lambda_2^i \epsilon_{t-i}
+\end{aligned}
+\end{equation}
+
+where $A$ and $B$ were found by solving set of equations:
+\nonumber
+\begin{equation}
+\begin{aligned}
+                    A+B & = 1 \\
+A\lambda_2 + B\lambda_1 & = 0
+\end{aligned}
+\end{equation}
+
+From above one can see that the $AR(2)$ process can be expressed as a difference of two infinite moving average processes. $\square$
+
+\end{solution}
